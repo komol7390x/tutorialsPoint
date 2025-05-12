@@ -18,3 +18,12 @@ function addition(a, b) {
     var b = 200;
     return a + b;
 }
+
+var a = 100;
+var b = 200;
+
+/* a = a + b;
+b = a - b;
+a = a - b; */
+
+console.log("a = " + a+ "\n"  + "b = " + b);
