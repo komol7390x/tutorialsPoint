@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("100" + 24 + "<br/>");
+        document.write('100' + false + "<br/>");
+        document.write("100" + null + "<br/>");
+        document.write("100" + undefined + "<br/>");
+    </script>
+
+    <br>
+    <script>
+        document.write(('100' / 50) + "<br>");
+        document.write(('100' - '50') + "<br>");
+        document.write(('100' * true) + "<br>");
+        document.write(('100' - false) + "<br>");
+        document.write(('tp' / 50) + "<br>");
+        let num = 100 + null; // Converts null to 0
+            num = 100 * null;  // Converts null to 0
+        document.write(num)
+    </script>
+    <br>
+    <script>
+        let num1 = 100 + undefined; // Prints NaN
+        document1write("The value of the num is: " + num1 + "<br>");
+        num1 = false * undefined; // Prints NaN
+        document.write("The value of the num is: " + num1 + "<br>");
+    </script>
+    <br>
+    <script>
+        document.write(String(100) + "<br/>");
+        document.write(String(null) + "<br/>");
+        document.write(String(true) + "<br/>");	
+    </script>
+    <br>
+    <script>
+        document.write(Number("200") + "<br/>");
+        document.write(Number("1000e-2") + "<br/>");
+        document.write(Number(false) + "<br/>");
+        document.write(Number(null) + "<br/>");
+        document.write(Number(undefined) + "<br/>");
+        document.write(+"200" + "<br/>");
+    </script>
+    <br>
+    <script>
+        document.write(Boolean(100) + "<br/>");
+        document.write(Boolean(0) + "<br/>");
+        document.write(Boolean("") + "<br/>");
+        document.write(Boolean("Hi") + "<br/>");
+        document.write(Boolean(null) + "<br/>");
+    </script>
+</body>
+</html>
