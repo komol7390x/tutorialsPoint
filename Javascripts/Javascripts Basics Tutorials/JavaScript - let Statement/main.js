@@ -22,3 +22,12 @@ function test() {
     console.log("y = " + y);
 }
 test();
+
+let a = 10;
+// let x = 20; 
+// // Bu xatolik beradi: SyntaxError: Identifier 'x' has already been declared
+
+var ab = 30;
+var ab = 40; // `var` bilan e’lon qilingan o‘zgaruvchini qayta e’lon qilish mumkin
+
+console.log(ab); // Natija: 40
