@@ -7,3 +7,14 @@ console.log((string1 + " " + string2));
 
 /* Comments xabarining birinchi qatori 
 Comments xabarining ikkinchi qatori */
+
+
+let result = addition(1123, 8823);
+console.log("Result = " + result);
+/* This function accepts two values as parameters,
+ adds them and returns the result*/
+function addition(a, b) {
+    var a = 100;
+    var b = 200;
+    return a + b;
+}
