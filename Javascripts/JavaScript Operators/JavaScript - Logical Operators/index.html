@@ -12,7 +12,7 @@
         const y = -2;
         document.getElementById("output").innerHTML = x > 0 && y > 2;
     </script> -->
-    <div id="output"></div>
+    <!-- <div id="output"></div>
     <script>
         let str1 = '';
         let str2 = 'Hello';
@@ -20,6 +20,16 @@
         document.getElementById("output").innerHTML =
             str1 || str2 + "<br>" +
             str2 || str3;
+    </script> -->
+
+    <div id="output"></div>
+    <script>
+        document.getElementById("output").innerHTML =
+            !true + "<br>" +
+            !false + "<br>" +
+            !0 + "<br>" +
+            !20 + "<br>" +
+            !('Hello World')
     </script>
 </body>
 </html>
