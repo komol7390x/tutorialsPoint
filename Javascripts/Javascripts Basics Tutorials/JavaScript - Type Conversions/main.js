@@ -7,5 +7,9 @@ let timeInMillis = currentDate.getTime(); // Sana vaqti millisekundlarda
 console.log(timeInMillis);       
 var a = 5;
 var a = 6;
-
 console.log(a);
+
+num = !!0; // !0 = true, !!0 = false
+num = !!1; // !1 = false, !!1 = true
+str = !!""; // !"" = true, !!"" = false
+str = !!"Hello"; // !"Hello" = false, !!"Hello" = true
