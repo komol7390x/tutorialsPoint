@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="output"> </p>
+    <script>
+        let output = document.getElementById("output");
+        function first() {
+            output.innerHTML += "The first function is called! <br/>";
+            return 1;
+        }
+
+        function second() {
+            output.innerHTML += "The second function is called! <br/>";
+            return 2;
+        }
+
+        let ans = (first(), second());
+        output.innerHTML += "The value of the ans variable is: " + ans;
+    </script>
+
+</body>
+</html>
