@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="output"></div>
+    <!-- <script>
+        let res1 = false && false || true // true
+        let res2 = false && (false || true) //false
+        document.getElementById("output").innerHTML =
+            "Result without grouping operator: " + res1 + "<br>" +
+            "Result with grouping operator: " + res2;
+    </script> -->
+    <script>
+        let ans1 = 5 + 10 / (function () { return 5; })();
+        let ans2 = (5 + 10) / (function () { return 5; })();
+        document.getElementById("output").innerHTML =
+            "Result 1: " + ans1 + "<br>" +
+            "Result 2: " + ans2;
+    </script>
+</body>
+</html>
