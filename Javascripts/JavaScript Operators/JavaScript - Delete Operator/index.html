@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="output"></div> -->
+    <!-- <script>
+        const obj = {
+            product: "Mobile",
+            price: 20000,
+            color: "Blue",
+        }
+        delete obj.price; // deleting price 
+        document.getElementById("output").innerHTML =
+            "The Mobile price is " + obj.price + " and color is " + obj.color;
+    </script> -->
+    <!-- <script>
+        const obj = {
+            product: "Mobile",
+            price: 20000
+        }
+        document.getElementById("output").innerHTML = delete obj.color;
+    </script> -->
+    <!-- <script>
+        const arr = [10, 20, 30, 40, 50, 60];
+        delete arr[1]; // deleting 2nd element from array
+        document.getElementById("output").innerHTML =
+            arr + "<br>" +
+            arr[1]; 
+    </script> -->
+    <!-- <script src="./main.js"></script> -->
+    <!-- <script>
+        var x = 10
+        var fun = function () { return 20 };
+        document.getElementById("output").innerHTML =
+            "delete Math.PI :" + delete Math.PI + "<br>" +
+            "delete Math :" + delete Math + "<br>";
+
+        try {
+            document.getElementById("output").innerHTML += Math.PI;
+        }
+        catch (e) {
+            document.getElementById("output").innerHTML += e;
+        }  
+    </script> -->
+    <div id="output1"></div>
+    <div id="output2"></div>
+    <!-- <script>
+        var x = 10
+        var fun = function () { return 20; };
+        document.getElementById("output1").innerHTML = delete x;
+        document.getElementById("output2").innerHTML = delete fun;
+    </script> -->
+    <script>
+        try {
+            x = 10
+            document.getElementById("output1").innerHTML = delete x;
+            document.getElementById("output2").innerHTML = x;
+        } catch (e) {
+            document.getElementById("output2").innerHTML = e;
+        }
+    </script>
+</body>
+</html>
