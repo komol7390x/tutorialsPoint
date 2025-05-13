@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="output"></div>
+    <script>
+        const x = 3;
+        const y = -2;
+        document.getElementById("output").innerHTML = x > 0 && y > 2;
+    </script> -->
+    <div id="output"></div>
+    <script>
+        let str1 = '';
+        let str2 = 'Hello';
+        let str3 = 'World';
+        document.getElementById("output").innerHTML =
+            str1 || str2 + "<br>" +
+            str2 || str3;
+    </script>
+</body>
+</html>
