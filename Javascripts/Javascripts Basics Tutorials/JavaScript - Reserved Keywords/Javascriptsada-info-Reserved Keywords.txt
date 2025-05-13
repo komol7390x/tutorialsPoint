@@ -1,0 +1,20 @@
+Reserved Keywords
+Here is the list of reserved keywords; you cant use them as an identifier −
+
+abstract	double	implements	return
+arguments	else	in	switch
+await	enum	instanceof	synchronized
+boolean	eval	int	this
+break	export	interface	throw
+byte	extends	let	throws
+case	false	long	transient
+catch	final	native	true
+char	finally	new	try
+class	float	null	typeof
+const	for	package	var
+continue	function	private	void
+debugger	goto	protected	volatile
+default	if	public	yield
+delete	implements	short	while
+do	import	static	with
+double	in	super
