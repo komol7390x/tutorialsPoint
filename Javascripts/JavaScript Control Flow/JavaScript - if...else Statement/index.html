@@ -6,6 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="output"></div>
+    <script>
+        let result;
+        let age = 20;
+        if (age > 18) {
+            result = "Qualifies for driving";
+        }
+        document.getElementById("output").innerHTML = result;
+    </script>  
 </body>
 </html>
