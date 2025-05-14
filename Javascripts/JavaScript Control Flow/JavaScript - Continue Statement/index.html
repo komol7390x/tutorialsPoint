@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="output"> </p>
+    <!-- <script>
+        let output = document.getElementById("output");
+        output.innerHTML += "Entering the loop. <br /> ";
+        for (let x = 1; x < 5; x++) {
+            if (x == 3) {
+                continue;   // skip rest of the loop body
+            }
+            output.innerHTML += x + "<br />";
+        }
+        output.innerHTML += "Exiting the loop!<br /> ";
+    </script> -->
+
+    <script>
+        let output = document.getElementById("output");
+        output.innerHTML += "Entering the loop. <br /> ";
+        for (let x = 1; x < 5; x++) {
+            if (x == 2 || x == 3) {
+                continue;   // skip rest of the loop body
+            }
+            for (let y = 1; y < 5; y++) {
+                if (y == 3) {
+                    continue;
+                }
+                output.innerHTML += x + " - " + y + "<br />";
+            }
+        }
+        output.innerHTML += "Exiting the loop!<br /> ";
+    </script>
+</body>
+</html>
