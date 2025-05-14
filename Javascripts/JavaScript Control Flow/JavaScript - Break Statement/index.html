@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="output"> </p>
+    <!-- <script>
+        const output = document.getElementById("output");
+        output.innerHTML += "Entering the loop. <br /> ";
+        for (let x = 1; x < 10; x++) {
+            if (x == 5) {
+                break;   // breaks out of loop completely
+            }
+            output.innerHTML += x + "<br />";
+        }
+        output.innerHTML += "Exiting the loop!<br /> ";
+    </script> -->
+
+    <script>
+        let output1 = document.getElementById("output");
+        var x = 1;
+        output1.innerHTML += "Entering the loop. <br /> ";
+        while (x < 10) {
+            if (x == 3 || x == 7) {
+                break;   // breaks out of loop completely
+            }
+            x = x + 1;
+            output1.innerHTML += x + "<br />";
+        }
+        output1.innerHTML += "Exiting the loop!<br /> ";
+    </script>
+
+    <script>
+        const output = document.getElementById("output");
+        var p = 10;
+        switch (p) {
+            case 10:
+                output.innerHTML = "p is 10";
+                break;
+            case 20:
+                output.innerHTML = "p is 20";
+                break;
+            case 30:
+                output.innerHTML = "p is 30";
+                break;
+            default:
+                output.innerHTML = "p is not 10, 20 or 30";
+        }
+    </script>
+</body>
+</html>
