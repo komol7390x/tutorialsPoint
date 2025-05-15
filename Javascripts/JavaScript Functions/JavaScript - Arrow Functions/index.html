@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="output"> </p>
+    <script>
+        let isMul = true;
+        const func = isMul ? () => {
+            let res = 5 * 5;
+            document.getElementById("output").innerHTML +=
+                "The multiplication value is: " + res + "<br>";
+        } : () => {
+            let res = 5 + 5;
+            document.getElementById("output").innerHTML +=
+                "The sum value is: " + res + "<br>";
+        };
+
+        func();
+    </script>
+
+    <script>
+        const output = document.getElementById("output");
+        const mul = (a = 10, b = 15) => a * b;
+        output.innerHTML += "mul(5, 8) = " + mul(5, 8) + "<br>";
+        output.innerHTML += "mul(6) = " + mul(6) + "<br>";
+        output.innerHTML += "mul() = " + mul() + "<br>";
+    </script>
+</body>
+</html>
