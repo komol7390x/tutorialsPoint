@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./main.js"></script>
+    <p id="output">The age of John is: </p>
+    <script>
+        const obj = {
+            name: "John",
+            getAge: () => {
+                return 10;
+            }
+        }
+        document.getElementById("output").innerHTML += obj.getAge();
+    </script>
+    <script>
+        (function () { alert("Hello World") })();
+    </script>
+</body>
+</html>
