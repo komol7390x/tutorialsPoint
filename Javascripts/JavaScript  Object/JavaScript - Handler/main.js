@@ -1,201 +1,185 @@
 // 1. apply()
 // Bu handler faqat function yoki class chaqirilganida ishlatiladi.
 
-// function sayHello(name) {
-//     return `Hello, ${name}!`;
-// }
+function sayHello(name) {
+    return `Hello, ${name}!`;
+}
 
-// const handler1 = {
-//     apply(target, thisArg, args) {
-//         return target(...args).toUpperCase();
-//     }
-// };
+const handler1 = {
+    apply: function (target, thisArg, args) {
+        console.log('apply chaqirildi');
+        return target(...args).toUpperCase();
+    }
+};
 
-// const proxy = new Proxy(sayHello, handler1);
+const proxy1 = new Proxy(sayHello, handler1);
 
-// console.log(proxy("Komol")); // Output: HELLO, KOMOL!
+// console.log(proxy1('Komol'));
 
 // // --------------------------------------------------------------------------
-
-// let odam = {
-//     ism: "Komol",
-//     yosh: 25
-// };
-
-// let handler = {
-//     get(target, prop) {
-//         console.log(`${prop} ga murojaat qilindi`);
-//         return target[prop];
-//     }
-// };
-
-// let proxyOdam = new Proxy(odam, handler);
-
-// console.log(proxyOdam.ism);  // Konsolda: "ism ga murojaat qilindi" va natija: "Komol"
-// // --------------------------------------------------------------------------
-
 // 2. construct()
 // Yangi obyekt yaratilayotganida(new operatori bilan) ishlatiladi.
+function Person(name) {
+    this.name = name;
+}
+const handler2 = {
+    construct(target, args) {
+        // console.log('construct chaqirildi');
+        return new target(...args);
+    }
+};
 
-// function Person(name) {
-//     this.name = name;
-// }
+const ProxyPerson = new Proxy(Person, handler2);
 
-// const handler = {
-//     construct(target, args) {
-//         return { greeting: `Hi ${args[0]}!` };
-//     }
-// };
+const p = new ProxyPerson('Komol');
+// console.log(p.name);
 
-// const proxy = new Proxy(Person, handler);
-// console.log(new proxy("Komol")); // Output: { greeting: 'Hi Komol!' }
 // // --------------------------------------------------------------------------
 // 3. defineProperty()
 // Object.defineProperty() orqali xususiyat qo‘shilayotgan yoki o‘zgartirilayotganida ishlatiladi.
+const target3 = {};
+const handler3 = {
+    defineProperty(target, prop, descriptor) {
+        // console.log(`Defining property: ${prop}`);
+        return Reflect.defineProperty(target3, prop, descriptor);
+    }
+};
 
-// const target = {};
-// const handler = {
-//     defineProperty(target, prop, descriptor) {
-//         console.log(`Defining property: ${prop}`);
-//         return Reflect.defineProperty(target, prop, descriptor);
-//     }
-// };
+const proxy3 = new Proxy(target3, handler3);
+Object.defineProperty(proxy3, "age", { value: 25 });
 
-// const proxy = new Proxy(target, handler);
-// Object.defineProperty(proxy, "age", { value: 25 });
-
-// console.log(proxy.age); // Output: 25
+// console.log(proxy3.age); // Output: 25
 // // --------------------------------------------------------------------------
 // 4. deleteProperty()
 // delete operatori ishlatilganida ishga tushadi.
-// const target = { name: "Komol" };
-// const handler = {
-//     deleteProperty(target, prop) {
-//         console.log(`Deleting property: ${prop}`);
-//         return Reflect.deleteProperty(target, prop);
-//     }
-// };
+const target4 = { name: "Komol" };
+const handler4 = {
+    deleteProperty(target4, prop) {
+        // console.log(`Deleting property: ${prop}`);
+        return Reflect.deleteProperty(target4, prop);
+    }
+};
 
-// const proxy = new Proxy(target, handler);
-// delete proxy.name; // Output: Deleting property: name
-// console.log(proxy); // Output: {}
+const proxy4 = new Proxy(target4, handler4);
+delete proxy4.name; // Output: Deleting property: name
+// console.log(proxy4); // Output: {}
 
 // // --------------------------------------------------------------------------
 // 5. get()
 // Obyekt xususiyatini o‘qishda ishlaydi.
 
-// const target = { name: "Komol" };
-// const handler = {
-//     get(target, prop) {
-//         return prop in target ? target[prop] : "Not found";
-//     }
-// };
+const target5 = { name: "Komol" };
+const handler5 = {
+    get(target, prop) {
+        return prop in target ? target[prop] : "Not found";
+    }
+};
 
-// const proxy = new Proxy(target, handler);
-// console.log(proxy.name); // Output: Komol
-// console.log(proxy.age);  // Output: Not found
+const proxy5 = new Proxy(target5, handler5);
+// console.log(proxy5.name); // Output: Komol
+// console.log(proxy5.age);  // Output: Not found
 
 // // --------------------------------------------------------------------------
 // 6. getOwnPropertyDescriptor()
 // Object.getOwnPropertyDescriptor() chaqirilganda ishga tushadi.
-// const target = { age: 25 };
-// const handler = {
-//     getOwnPropertyDescriptor(target, prop) {
-//         console.log(`Getting descriptor for: ${prop}`);
-//         return Object.getOwnPropertyDescriptor(target, prop);
-//     }
-// };
+const target6 = { age: 25 };
+const handler6 = {
+    getOwnPropertyDescriptor(target6, prop) {
+        console.log(`Getting descriptor for: ${prop}`);
+        return Object.getOwnPropertyDescriptor(target6, prop);
+    }
+};
 
-// const proxy = new Proxy(target, handler);
+const proxy = new Proxy(target6, handler6);
 // console.log(Object.getOwnPropertyDescriptor(proxy, "age"));
-// // Output: descriptor + { value: 25, ... }
-
+// Output: descriptor + { value: 25, ... }
 // // --------------------------------------------------------------------------
 // 7. getPrototypeOf()
 // Object.getPrototypeOf() chaqirilganda ishga tushadi.
 
-// const handler = {
-//     getPrototypeOf(target) {
-//         console.log("Getting prototype");
-//         return Object.getPrototypeOf(target);
-//     }
-// };
+const handler7 = {
+    getPrototypeOf(target) {
+        console.log("Getting prototype");
+        return Object.getPrototypeOf(target);
+    }
+};
 
-// const obj = {};
-// const proxy = new Proxy(obj, handler);
-// console.log(Object.getPrototypeOf(proxy)); // Output: Getting prototype + {}
-  
+const obj = {};
+const proxy7 = new Proxy(obj, handler7);
+// console.log(Object.getPrototypeOf(proxy7)); 
+// // Output: Getting prototype + {}
 // // --------------------------------------------------------------------------
 // 8. has() in operatori ishlatilganda ishga tushadi.
-// const target = { secret: "hidden", visible: true };
-// const handler = {
-//     has(target, prop) {
-//         return prop !== "secret";
-//     }
-// };
+const target8 = { secret: "hidden", visible: true };
+const handler8 = {
+    has(target, prop) {
+        return prop !== "secret";
+    }
+};
 
-// const proxy = new Proxy(target, handler);
-// console.log("secret" in proxy);  // Output: false
-// console.log("visible" in proxy); // Output: true
+const proxy8 = new Proxy(target8, handler8);
+// console.log("secret" in proxy8);  // Output: false
+// console.log("visible" in proxy8); // Output: true
 
 // // --------------------------------------------------------------------------
 // 9. isExtensible() Object.isExtensible() chaqirilganda ishga tushadi.
-// const target = {};
-// const handler = {
-//     isExtensible(target) {
-//         console.log("Checking if extensible");
-//         return Object.isExtensible(target);
-//     }
-// };
+const target9 = {};
+const handler9 = {
+    isExtensible(target) {
+        console.log("Checking if extensible");
+        return Object.isExtensible(target);
+    }
+};
 
-// const proxy = new Proxy(target, handler);
-// console.log(Object.isExtensible(proxy)); // Output: Checking if extensible + true
+const proxy9 = new Proxy(target9, handler9);
+// console.log(Object.isExtensible(proxy9));
+//  // Output: Checking if extensible + true
 
 // // --------------------------------------------------------------------------
 // 10. ownKeys() Object.keys(), for...in, Object.getOwnPropertyNames() chaqirilganda ishlaydi.
-// const target = { a: 1, b: 2 };
-// const handler = {
-//     ownKeys(target) {
-//         console.log("Returning custom keys");
-//         return ["a"];
-//     }
-// };
+const target10 = { a: 1, b: 2 };
+const handler10 = {
+    ownKeys(target) {
+        console.log("Returning custom keys");
+        return ["a"];
+    }
+};
 
-// const proxy = new Proxy(target, handler);
-// console.log(Object.keys(proxy)); // Output: Returning custom keys + [ 'a' ]
+const proxy10 = new Proxy(target10, handler10);
+// console.log(Object.keys(proxy10)); 
+// Output: Returning custom keys + [ 'a' ]
 
 // // --------------------------------------------------------------------------
 // 11. set()
 // Xususiyatga qiymat tayinlashda ishga tushadi.
-// const target = {};
-// const handler = {
-//     set(target, prop, value) {
-//         console.log(`Setting ${prop} to ${value}`);
-//         target[prop] = value;
-//         return true;
-//     }
-// };
+const target11 = {};
+const handler11 = {
+    set(target, prop, value) {
+        // console.log(`Setting ${prop} to ${value}`);
+        target[prop] = value;
+        return true;
+    }
+};
 
-// const proxy = new Proxy(target, handler);
-// proxy.name = "Komol"; // Output: Setting name to Komol
-// console.log(proxy.name); // Output: Komol
-
+const proxy11 = new Proxy(target11, handler11);
+proxy11.name = "Komol";
+// Output: Setting name to Komol
+// console.log(proxy11.name);
+// Output: Komol
 // // --------------------------------------------------------------------------
 
 // 12. setPrototypeOf()
 // Obyektga yangi prototip o‘rnatishda(Object.setPrototypeOf()) ishlaydi.
-const target = {};
-const handler = {
+const target12 = {};
+const handler12 = {
     setPrototypeOf(target, proto) {
-        console.log("Setting prototype");
+        // console.log("Setting prototype");
         return Reflect.setPrototypeOf(target, proto);
     }
 };
 
-const proxy = new Proxy(target, handler);
-Object.setPrototypeOf(proxy, Array.prototype); // Output: Setting prototype
-console.log(proxy instanceof Array); // Output: true
-
-// // --------------------------------------------------------------------------
-
-// // --------------------------------------------------------------------------
+const proxy12 = new Proxy(target12, handler12);
+Object.setPrototypeOf(proxy12, Array.prototype);
+// Output: Setting prototype
+// console.log(proxy12 instanceof Array);
+// Output: true
