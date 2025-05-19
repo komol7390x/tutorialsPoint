@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./main.js"></script>
+    <p id="output"></p>
+    <script>
+        const sym1 = Symbol();
+        document.getElementById("output").innerHTML =
+            "The sym1 is: " + sym1.toString() + "<br>" +
+            "The type of sym1 is: " + typeof sym1 + "<br>";
+        const sym2 = Symbol("description");
+        document.getElementById("output").innerHTML += "The sym2 is: " + sym2.toString();
+    </script>
+</body>
+</html>
