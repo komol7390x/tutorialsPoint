@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="output"> </p>
+    <script>
+        const company = {
+            companyName: "Tutorials Point",
+            companyWebsite: "www.tutorialspoint.com",
+
+            getInfo: function () {
+                return "Comapny Name: " + this.companyName + "<br>Website: " + this.companyWebsite;
+            },
+        }
+        document.getElementById("output").innerHTML = company.getInfo();
+    </script>
+
+    <script>
+        const employee = {
+            name: "John Doe",
+            age: 32,
+            getInfo() {
+                return "The employee name is " + this.name + " and his age is " + this.age + " Years.";
+            },
+        }
+
+        document.getElementById("output").innerHTML = employee.getInfo();
+
+    </script>
+
+    <p id="output">The sum of 2 and 3 is </p>
+    <script>
+        const nums = {
+            getSum(a, b) {
+                return a + b;
+            }
+        }
+        document.getElementById("output").innerHTML += nums.getSum(2, 3);
+    </script>
+
+    <script>
+        const nums1 = {
+            getSum(a, b) {
+                return a + b;
+            }
+        }
+        nums1.getMul = function (a, b) {
+            return a * b;
+        }
+
+        document.getElementById("output").innerHTML += nums1.getMul(2, 3);
+    </script>
+</body>
+</html>
