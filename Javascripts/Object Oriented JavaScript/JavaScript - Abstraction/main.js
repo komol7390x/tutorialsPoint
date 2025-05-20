@@ -3,7 +3,7 @@ function BankAccount(balance) {
     this.balance = balance || 0;
 
     if (this.constructor === BankAccount) {
-        throw new Error("BankAccount ning to‘g‘ridan-to‘g‘ri nusxasini yaratib bo‘lmaydi.");
+        console.log("BankAccount ning to‘g‘ridan-to‘g‘ri nusxasini yaratib bo‘lmaydi.");
     }
 }
 
@@ -19,7 +19,7 @@ BankAccount.prototype.deposit = function (amount) {
 
 // Pul yechish metodi (faqat farzand sinfda ishlatiladi)
 BankAccount.prototype.withdraw = function (amount) {
-    throw new Error("withdraw metodi amalga oshirilishi kerak!");
+    console.log(("withdraw metodi amalga oshirilishi kerak!"));
 }
 
 // Farzand sinf - Oddiy hisob
