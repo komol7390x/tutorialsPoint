@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const output = document.getElementById("demo");
+
+        class Table {
+            static printSize() {
+                return "The size of the table is: 20 x 20 <br>";
+            }
+
+            getColor() {
+                return "Black";
+            }
+        }
+
+        output.innerHTML = Table.printSize(); // Static method execution
+        const tableObj = new Table();
+        output.innerHTML += "The color of the table is: " + tableObj.getColor();
+    </script>
+
+    <script>
+        class Table {
+            static printSize() {
+                return "The size of the table is 20 x 20 <br>";
+            }
+
+            static getColor() {
+                return "The color of the table is Pink";
+            }
+        }
+
+        document.getElementById("output").innerHTML =
+            Table.printSize() + "br" +
+            Table.getColor();
+    </script>
+
+    <script>
+        class Num {
+            constructor(a) {
+                // Static method execution
+                this.sqrt = this.constructor.getSqrt(a);
+            }
+
+            static getSqrt(a) {
+                return a * a;
+            }
+        }
+        const num1 = new Num(10);
+        document.getElementById("output").innerHTML += num1.sqrt;
+    </script>
+</body>
+</html>
