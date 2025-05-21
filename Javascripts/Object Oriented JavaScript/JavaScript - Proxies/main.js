@@ -90,6 +90,18 @@ const handler = {
 const proxy = new Proxy(target, handler);
 
 // === Examples to trigger handlers ===
+// Apply handler – only for function proxies
+const greet = new Proxy(function (name) {
+    return `Hi, ${name}`;
+}, handler);
+console.log(greet("Komol"));        // apply
+
+// Construct handler – only for constructor function proxies
+const Person = new Proxy(function (name) {
+    this.name = name;
+}, handler);
+const p = new Person("Komol");      // construct
+
 proxy.a;                             // get
 proxy.c = 3;                         // set
 "b" in proxy;                        // has
@@ -102,15 +114,4 @@ Object.preventExtensions(proxy);    // preventExtensions
 Object.keys(proxy);                 // ownKeys
 Object.setPrototypeOf(proxy, {});   // setPrototypeOf
 
-// Apply handler – only for function proxies
-const greet = new Proxy(function (name) {
-    return `Hi, ${name}`;
-}, handler);
-console.log(greet("Komol"));        // apply
-
-// Construct handler – only for constructor function proxies
-const Person = new Proxy(function (name) {
-    this.name = name;
-}, handler);
-const p = new Person("Komol");      // construct
   
