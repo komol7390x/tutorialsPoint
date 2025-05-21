@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo"> </div>
+    <script>
+        let output = document.getElementById('demo');
+        function test2() {
+            output.innerHTML += '<br>test2 started!';
+            output.innerHTML += '<br>test2 finished!';
+        }
+        function test1() {
+            output.innerHTML += 'test1 started!';
+            test2();
+            output.innerHTML += '<br>test1 finished!';
+        }
+        test1();
+    </script>
+
+    <script>
+        let output1 = document.getElementById('demo');
+        output1.innerHTML += "Code execution started. <br>";
+        setTimeout(function () {
+            output1.innerHTML += "setTimeout() called. <br>";
+        }, 1000);
+        output1.innerHTML += "Code execution finished. <br>";
+    </script>
+<script src="./main.js"></script>
+</body>
+</html>
