@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="output"> </p>
+    <script>
+        const output = document.getElementById("output");
+        const parent = {
+            name: "parent",
+            printMessage() {
+                output.innerHTML = 'This is a parent object.<br>';
+            }
+        }
+        const child = {
+            showName() {
+                output.innerHTML += 'This is a child object.<br>';
+            }
+        }
+        Object.assign(child, parent); // Mixins
+        child.printMessage(); //Executing the method of parent object using child object
+        child.showName();
+    </script>
+
+    <script>
+        const output1 = document.getElementById("output");
+        const animal = {
+            eats: true,
+            run() {
+                output.innerHTML += "Animals run. <br>";
+            }
+        }
+
+        class cat {
+            constructor() {
+                this.name = "Cat";
+            }
+        }
+        Object.assign(cat.prototype, animal); // Mixins
+        const catObj = new cat();
+        output1.innerHTML += "Cat eats: " + catObj.eats + "<br>";
+        catObj.run();
+    </script>
+
+    <p id="demo"> </p>
+    <script>
+        let output2 = document.getElementById("demo");
+
+        // Ota klass
+        class Entity {
+            state() {
+                return 'U hozir bo‘sh holatda!';
+            }
+        }
+
+        // Bola klass
+        class Human extends Entity {
+            walk() {
+                return 'maydonda yurganmoqda.';
+            }
+        }
+
+        // Maxsus funksionalliklar
+        function Driver(parentClass) {
+            return class extends parentClass {
+                drive() {
+                    return 'yo‘lda haydamoqda';
+                }
+            };
+        }
+
+        function Swimmer(parentClass) {
+            return class extends parentClass {
+                swim() {
+                    return 'suvda suzmoqda';
+                }
+            };
+        }
+
+        // Boshqa klasslar
+        class Person extends Driver(Human) { }
+        class Mechanic extends Driver(Entity) { }
+        class SwimmerPerson extends Swimmer(Person) { }
+
+        // Klass ob’ektlari
+        const person = new Person();
+        const personDrive = person.drive();
+
+        const mechanic = new Mechanic();
+        const mechanicDrive = mechanic.drive();
+
+        const swimmerPerson = new SwimmerPerson();
+        const swimmerDrive = swimmerPerson.drive();
+        const swimmerSwim = swimmerPerson.swim();
+
+        // Natijalarni chiqarish
+        output2.innerHTML += 'PERSON holati: ' + personDrive + '<br>';
+        output2.innerHTML += 'MECHANIC holati: ' + mechanicDrive + '<br>';
+        output2.innerHTML += 'SWIMMER PERSON holati: ' + swimmerDrive + ", " + swimmerSwim + '<br>';
+    </script>
+</body>
+</html>
