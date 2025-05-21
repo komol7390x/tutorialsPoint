@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="output"> </p>
+    <script>
+        const student = {
+            firstName: "Kunal",
+            lastName: "Karma",
+            grades: {
+                English: 75,
+                Maths: 87,
+                SocialScience: 90,
+                Science: 80,
+            }
+        };
+        const { firstName, lastName, grades: { Maths, ...allGrades } } = student;
+        document.getElementById("output").innerHTML =
+            `firstName: ${firstName} <br>
+    		 lastName: ${lastName} <br>
+    		 Maths: ${Maths} <br>
+    		 allGrades: ${JSON.stringify(allGrades)} <br>
+    		 `;
+    </script>
+    <script>
+        const numbers = [10, { p: 20, q: 30 }]
+        const [a, { p, q }] = numbers;
+        document.getElementById("output").innerHTML =
+            "a = " + a + ", p = " + p + ", q = " + q; 
+    </script>
+    <script>
+        const numbers1 = {
+            num1: 10,
+            num2: [40, 6, 5],
+        }
+        const { num1, num2: [a1, b, c] } = numbers1;
+        document.getElementById("output").innerHTML =
+            "num1 = " + num1 + ", a = " + a1 + ", b = " + b + ", c = " + c; 
+    </script>
+</body>
+</html>
