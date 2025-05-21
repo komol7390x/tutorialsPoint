@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="output"></div>
+    <script>
+        let output = document.getElementById('output');
+
+        function multiply(a) {
+            let m = a * 4;
+            output.innerHTML = "Natija: " + m + ".<br>";
+        }
+
+        function sum(a, b, callback) {
+            let c = a + b;
+            callback(c); // callback funksiyani chaqirish
+        }
+
+        sum(4, 8, multiply); // multiply funksiyasini callback sifatida uzatish
+    </script>
+    <script src="./main.js"></script>
+
+    <script>
+        let output1 = document.getElementById('output');
+        let arr = [23, 21, 56, 11, 10, 7, 8];
+        let eventNums = arr.filter(filtercallback);
+
+        function filtercallback(element) {
+            return element % 2 == 0;
+        }
+        output1.innerHTML += "The original array is: " + arr + "<br>";
+        output1.innerHTML += "The even numbers are: " + eventNums;
+    </script>
+</body>
+</html>
