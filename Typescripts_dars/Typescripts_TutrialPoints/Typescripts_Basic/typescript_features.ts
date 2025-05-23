@@ -76,3 +76,16 @@ unionType = 500; // Son qiymati berilmoqda
 console.log("Number qiymati: " + unionType);
 
 // unionType = true; // Xatolik: 'boolean' turi 'string | number' turiga mos emas
+
+var myTuple2: [number, string, string, string] = [10, "Hello", "World", "typeScript"];
+console.log("Items before push " + myTuple2.length)
+
+myTuple2.push(12) // append value to the tuple 
+console.log("Items after push " + myTuple2.length)
+console.log(myTuple2);
+// ------------------------------------------------------
+function greet2() {
+    console.log("Welcome to tutorials Point");
+}
+let msg2 = greet2();
+msg2
