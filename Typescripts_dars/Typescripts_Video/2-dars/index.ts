@@ -10,7 +10,7 @@ let c: unknown = 20.1234;
 let e: number = <number>c;
 let f: number = c as number;
 c=+(c as number).toFixed(2)
-console.log(c);
+// console.log(c);
 
 let h: number | string | boolean = 10;
 h = 10;
@@ -22,5 +22,4 @@ let s: "sm" | "dm" | "lm";
 // s=12
 // s=true
 s = "sm";
-s="dm"
-
+s = "dm"

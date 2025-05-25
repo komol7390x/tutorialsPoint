@@ -8,7 +8,7 @@ var c = 20.1234;
 var e = c;
 var f = c;
 c = +c.toFixed(2);
-console.log(c);
+// console.log(c);
 var h = 10;
 h = 10;
 h = true;
