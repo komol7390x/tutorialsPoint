@@ -11,6 +11,7 @@ function getUsers() {
 }
 function addUser(user) {
     return new Promise((resolve, reject) => {
+        users.push(user)
         const check = user;
         if (check) {
             resolve()
