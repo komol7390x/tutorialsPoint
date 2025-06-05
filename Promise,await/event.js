@@ -3,7 +3,7 @@
 // btn.addEventListener("click", function () {
 //     alert("Tugma bosildi!");
 // });
-let res = document.getElementById("mybtn");
+const res = document.getElementById("myBtn");
 res.addEventListener("click", function () {
     alert("Tugma bosilmadi!")
 })
