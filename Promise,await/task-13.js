@@ -14,8 +14,23 @@
 // }
 // let des = Object.getOwnPropertyDescriptors(obj, "name")
 // console.log(des);
-function mergeIntervals(intervals: number[][]): number[][] {
-    // Your code here
-}
-mergeIntervals([[1, 3], [2, 6], [8, 10], [15, 18]]); // [[1, 6], [8, 10], [15, 18]]
-mergeIntervals([[1, 4], [4, 5]]);                   // [[1, 5]]
+// ------------------------------------------------------------
+const EventEmitter = require('node:events');
+class MyEmitter extends EventEmitter { }
+const myEmitter = new MyEmitter();
+// myEmitter.emit('error', new Error('whoops!'));
+// ------------------------------------------------------------
+myEmitter.on('error', (err) => {
+  console.error(`whoops! there was an error \n${err}`);
+});
+// myEmitter.emit('error', new Error('whoops!'));
+// ------------------------------------------------------------
+// const { EventEmitter, errorMonitor } = require('node:events');
+
+// const myEmitter = new EventEmitter();
+// myEmitter.on(errorMonitor, (err) => {
+    //   MyMonitoringTool.log(err);
+    // });
+    // myEmitter.emit('error', new Error('whoops!'));
+// ------------------------------------------------------------
+    
