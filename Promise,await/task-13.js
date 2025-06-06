@@ -9,8 +9,8 @@
 // });
 // myEmitter.emit('event', 'a', 'b');
 // let obj = {
-//     name: "Laylo"
-//     age:24;
+//     name: "Laylo",
+//     age:24
 // }
 // let des = Object.getOwnPropertyDescriptors(obj, "name")
 // console.log(des)
