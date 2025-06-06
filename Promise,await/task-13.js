@@ -9,11 +9,11 @@
 // });
 // myEmitter.emit('event', 'a', 'b');
 // let obj = {
-//     name: "Laylo",
+//     name: "Laylo"
 //     age:24;
 // }
 // let des = Object.getOwnPropertyDescriptors(obj, "name")
-// console.log(des);
+// console.log(des)
 // ------------------------------------------------------------
 const EventEmitter = require('node:events');
 class MyEmitter extends EventEmitter { };
