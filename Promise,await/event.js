@@ -9,9 +9,9 @@ const EventEmitter = require("events");
 
 const newEmit = new EventEmitter();
 newEmit.on("Salom ber", (ism) => {
-    console.log(`Salom, ${ism}!`);
+    console.log(`Salom, ${ism}!`)
 })
-newEmit.emit("Salom ber", "Komol");
+newEmit.emit("Salom ber", "Komol")
 
 // ------------------------------------------------
 const EventEmitter = require('node:events');
