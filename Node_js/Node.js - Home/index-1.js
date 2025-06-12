@@ -1,15 +1,14 @@
-const { spawn } = require('child_process');
+let cp = require('child_process')
+const os = require('os');
+let progs = {
+    list: os.platform() === 'win32' ? 'cmd' : 'ls',
+    args: os.platform() === 'win32' ? ['/c', 'dir'] : []
+};
+let child = cp.spawn(progs.list);
+child.stdout.on('data', (data) => {
+    console.log(`data: \n${data}`);
+})
 
-const ls = spawn('ls', ['-l']); // katalogdagi fayllarni ro'yxatlaydi
-
-ls.stdout.on('data', (data) => {
-    console.log(`Natija:\n${data}`);
-});
-
-ls.stderr.on('data', (data) => {
-    console.error(`Xatolik:\n${data}`);
-});
-
-ls.on('close', (code) => {
-    console.log(`Process tugadi. Chiqish kodi: ${code}`);
-});
+// child.stderr.on('data', (data) => {
+//     console.error(`Xatolik:\n${data}`);
+// });
