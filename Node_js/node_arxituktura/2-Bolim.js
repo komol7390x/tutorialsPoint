@@ -18,10 +18,9 @@ const freeMem = os.totalmem();
 // console.log(os.cpus()[0]);  //cpu yadrosini
 // console.log(Math.floor(os.totalmem() / 1024 / 1024), ' mb'); //RAM Xotirasi jami;
 // console.log(Math.floor(os.freemem() / 1024 / 1024),' mb'); // RAM da bosh joy
-console.log(Math.floor(os.uptime()/60/60), 'soat');
-
-
-
+// console.log(Math.floor(os.uptime() / 60 / 60), 'soat'); //kompyuter ishga tushganidan beri qancha vaqt o‘tganini
+// console.log(os.hostname()); //Comp nomi
+console.log(os.networkInterfaces());  //Kompyuterning tarmoqqa ulanish manzillarini(IP va MAC) qaytaradi.
 
 // --------------------------------------------
 // console.log(module)
