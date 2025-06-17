@@ -9,11 +9,11 @@ const prog = {
 const child = spawn(...prog.list); // '...' bilan arrayni ajratamiz
 
 child.stdout.on('data', (data) => {
-    console.log(`Natija:\n${data}`);
+    console.log(`Natija:\n${data}`)
 });
 
 child.stderr.on('data', (data) => {
-    console.error(`Xatolik:\n${data}`)
+    console.error(`Xatolik:\n${data}`);
 });
 
 child.on('close', (code) => {
