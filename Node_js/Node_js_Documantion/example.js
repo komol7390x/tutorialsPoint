@@ -13,7 +13,7 @@ child.stdout.on('data', (data) => {
 });
 
 child.stderr.on('data', (data) => {
-    console.error(`Xatolik:\n${data}`);
+    console.error(`Xatolik:\n${data}`)
 });
 
 child.on('close', (code) => {
