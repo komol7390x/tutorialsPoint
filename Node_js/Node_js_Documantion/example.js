@@ -1,7 +1,8 @@
-const { fork } = require('child_process');
-const child = fork('child.js');
+const { spawn } = require('child_process');
 
-child.on('message', (msg) => {
-    console.log(`Bola xabar yubordi: ${msg}`);
-})
-child.send('Salom bolajon');
+const calc = spawn('notepad.exe');
+
+calc.on('close', (code) => {
+    console.log(`Node ishga tushdi. Kod: ${code}`);
+});
+
