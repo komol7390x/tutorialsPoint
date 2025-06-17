@@ -6,7 +6,7 @@ const prog = {
     folder: ['cmd', ['/c', 'mkdir new2_folder']]
 };
 
-const child = spawn(...prog.folder); // '...' bilan arrayni ajratamiz
+const child = spawn(...prog.list); // '...' bilan arrayni ajratamiz
 
 child.stdout.on('data', (data) => {
     console.log(`Natija:\n${data}`);
