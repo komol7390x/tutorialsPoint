@@ -1,6 +1,6 @@
 // console.log(111);
 const { spawn } = require('child_process');
-const ls = spawn('cmd', ['/c', 'dir']);
+const ls = spawn('cmd.exe', ['/c', 'dir']);
 
 ls.stdout.on('data', (data) => {
     console.log(`Natija ${data}`);
