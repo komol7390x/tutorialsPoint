@@ -1,29 +1,11 @@
-const { spawn } = require('child_process');
+const { fork } = require('child_process');
 
-const pythonProcess = spawn('python', ['my_script.py']);
+const child = fork('child.js');
 
-// Python skriptiga ma'lumot yuboramiz
-pythonProcess.stdin.write('hello from nodejs\n');
-pythonProcess.stdin.write('another message\n');
-pythonProcess.stdin.end(); // Ma'lumot yuborishni tugatamiz
+// Child'ga xabar yuborish
+child.send({ msg: 'Salom, child!' });
 
-// Python skriptidan javobni tinglaymiz
-pythonProcess.stdout.on('data', (data) => {
-    console.log(`Python stdout: ${data.toString()}`);
+// Child'dan kelgan xabarni olish
+child.on('message', (data) => {
+    console.log('Child javobi:', data);
 });
-
-// Xatoliklarni tinglaymiz
-pythonProcess.stderr.on('data', (data) => {
-    console.error(`Python stderr: ${data.toString()}`);
-});
-
-// Python skripti tugaganda
-pythonProcess.on('close', (code) => {
-    console.log(`Python process exited with code ${code}`);
-});
-
-pythonProcess.on('error', (err) => {
-    console.error('Failed to start Python process.', err);
-});
-
-console.log('Python script is running...');
