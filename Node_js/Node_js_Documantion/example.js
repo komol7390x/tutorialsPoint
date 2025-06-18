@@ -1,21 +1,29 @@
-const {spawn} = require('child_process');
+const { spawn } = require('child_process');
 
-const prog = {
-    list: ['cmd', ['/c', 'dir']],
-    copy: ['cmd', ['/c', 'copy file1.txt file2.txt']],
-    folder: ['cmd', ['/c', 'mkdir new2_folder']]
-};
+const pythonProcess = spawn('python', ['my_script.py']);
 
-const child = spawn(...prog.list); // '...' bilan arrayni ajratamiz
+// Python skriptiga ma'lumot yuboramiz
+pythonProcess.stdin.write('hello from nodejs\n');
+pythonProcess.stdin.write('another message\n');
+pythonProcess.stdin.end(); // Ma'lumot yuborishni tugatamiz
 
-child.stdout.on('data', (data) => {
-    console.log(`Natija:\n${data}`)
+// Python skriptidan javobni tinglaymiz
+pythonProcess.stdout.on('data', (data) => {
+    console.log(`Python stdout: ${data.toString()}`);
 });
 
-child.stderr.on('data', (data) => {
-    console.error(`Xatolik:\n${data}`);
+// Xatoliklarni tinglaymiz
+pythonProcess.stderr.on('data', (data) => {
+    console.error(`Python stderr: ${data.toString()}`);
 });
 
-child.on('close', (code) => {
-    console.log(`Jarayon tugadi. Kod: ${code}`);
+// Python skripti tugaganda
+pythonProcess.on('close', (code) => {
+    console.log(`Python process exited with code ${code}`);
 });
+
+pythonProcess.on('error', (err) => {
+    console.error('Failed to start Python process.', err);
+});
+
+console.log('Python script is running...');
