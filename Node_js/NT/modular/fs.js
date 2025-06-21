@@ -100,6 +100,6 @@ console.log('\n=== BONUS: fs.writeFileSync & readFileSync ===');
 const examplePath = path.join(__dirname, 'example.txt');
 fs.writeFileSync(examplePath, 'Bu path modulining amaliy namunasidir.', 'utf8');
 
-const content = fs.readFileSync(examplePath, 'utf8');
-console.log('File Content:', content);
+const content2 = fs.readFileSync(examplePath, 'utf8');
+console.log('File Content:', content2);
 
