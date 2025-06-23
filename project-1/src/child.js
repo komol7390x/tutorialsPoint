@@ -7,11 +7,7 @@ const mercedesModels = [
 ];
 
 process.on('message', (msg) => {
-  if (msg === 'getModels') {
-    process.send?.(mercedesModels);
-  }
-
-  if (msg === 'exit') {
-    process.exit(0);
+  if (msg === 'getAllModelsMers') {
+    process.send(mercedesModels);
   }
 });

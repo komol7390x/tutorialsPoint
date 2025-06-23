@@ -45,6 +45,6 @@ mers_process.on('message', (msg) => {
   }
   if (typeof msg === 'string') {
     const result = msg.toUpperCase();
-    process.send?.(result);
+    process.send?.(mercedesModels);
   }
 });
