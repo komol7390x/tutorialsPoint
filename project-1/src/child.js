@@ -6,8 +6,8 @@ const mercedesModels = [
   { model: 'AMG GT', color: 'red', year: 2023, price: 130000, bodyType: 'coupe' },
 ];
 
-process.on('message', (msg) => {
-  if (msg === 'getAllModelsMers') {
+process.on('message', (msg) => {    
+  if (msg === 'salom') {
     process.send(mercedesModels);
   }
 });
