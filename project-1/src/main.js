@@ -1,12 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var prompt = require('prompt-sync')();
-var salom = prompt("salom: ");
-// import { spawn, ChildProcess } from 'child_process';
-// const child: ChildProcess = spawn('node', ['child.js']);
-// child.stdout.on('data', (data: string) => {
+var child_process_1 = require("child_process");
+var bmw = (0, child_process_1.spawn)('node', ['BMW.js']);
+var mers = (0, child_process_1.fork)('MERS.js');
+// mers.on('message', (data:text) => {
+//   console.log('Kelgan ma`lumot:', data.text);
+// });
+// mers.send('getData');
+// bmw.stdout.on('data', (data: string) => {
 //     console.log(`Child process chiqishi: ${data}`)
 // });
-// child.stdout.setEncoding('utf-8');
 // child.stderr.setEncoding('utf-8');
-// child.on('close', (code: number) => {
+// bmw.on('close', (code: number) => {
 //     console.log(`Child process tugadi. Chiqqan kodi: ${code}`);
 // });
