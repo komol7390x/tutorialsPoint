@@ -1,1 +1,0 @@
-document.getElementById("output").innerHTML="Salom Dunyo"
