@@ -2,7 +2,7 @@ const { askPrompt } = require('../prompt/prompt.js')
 const { fork } = require('child_process')
 console.log('\tMashinlar!\n1. BMW\n2. Mercedes-benz ');
 // const choose:number=askPrompt('>>>')
-const choose: number = 1
+const choose: number = 3
 // ----------------------------------------------------------------------
 function print(item:object):void{
     console.log(`Model: ${item.model}`);
@@ -36,6 +36,7 @@ else if (choose == 2) {
 } 
 // ----------------------------------------------------------------------
 else {
-    console.log(`${choose} noto'g'ri soraov kiritildi :(`);
+    console.clear()
+    console.log(`${choose} => Invalid request entered :(`);
 
 }

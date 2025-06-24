@@ -2,7 +2,7 @@ var askPrompt = require('../prompt/prompt.js').askPrompt;
 var fork = require('child_process').fork;
 console.log('\tMashinlar!\n1. BMW\n2. Mercedes-benz ');
 // const choose:number=askPrompt('>>>')
-var choose = 1;
+var choose = 3;
 // ----------------------------------------------------------------------
 function print(item) {
     console.log("Model: ".concat(item.model));
@@ -36,5 +36,6 @@ else if (choose == 2) {
 }
 // ----------------------------------------------------------------------
 else {
-    console.log("".concat(choose, " noto'g'ri soraov kiritildi :("));
+    console.clear();
+    console.log("".concat(choose, " => Invalid request entered :("));
 }
