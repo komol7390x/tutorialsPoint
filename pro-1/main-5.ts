@@ -1,15 +1,15 @@
 const { askPrompt } = require('../prompt/prompt.js')
-const { fork } = require('child_process')
+const { fork, spawn } = require('child_process')
 console.log('\tMashinlar!\n1. BMW\n2. Mercedes-benz ');
 // const choose:number=askPrompt('>>>')
-const choose: number = 1
+const choose: number = 2
 // ----------------------------------------------------------------------
-function print(item:object):void{
+function print(item: object): void {
     console.log(`Model: ${item.model}`);
     console.log(`Rangi: ${item.color}`)
-    console.log(`Yili: ${item.year} year`) 
-    console.log(`Narxi: ${item.price} $`) 
-    console.log(`Kuzov: ${item.bodyType}`) ;
+    console.log(`Yili: ${item.year} year`)
+    console.log(`Narxi: ${item.price} $`)
+    console.log(`Kuzov: ${item.bodyType}`);
     console.log('---------------');
 }
 // ----------------------------------------------------------------------
@@ -17,16 +17,16 @@ if (choose == 1) {
     console.clear()
     console.log('Mercedes-benz\n');
     try {
-        const child = fork('./MERS.js');
-        child.send({ message: 'mers' });
-        child.on('message', (data: object) => {
+        const mers = fork('./MERS.js');
+        mers.send({ message: 'mers' });
+        mers.on('message', (data: object) => {
             if (Object.keys(data) != 'watch:require') {
                 data.forEach(element => {
                     print(element)
                 });
             }
         });
-        child.on('error', (err) => console.log(err));
+        mers.on('error', (err) => console.log(err));
     } catch (error) {
         console.log(`Not found ${error.message}`);
     }
@@ -34,7 +34,7 @@ if (choose == 1) {
 // ----------------------------------------------------------------------
 else if (choose == 2) {
 
-} 
+}
 // ----------------------------------------------------------------------
 else {
     console.clear()
