@@ -7,7 +7,7 @@ const mercedesModels = [
 ];
 
 process.on('message', (msg) => {    
-  if (msg === 'salom') {
+  if (msg === 'mers') {
     process.send(mercedesModels);
   }
 });
