@@ -2,7 +2,7 @@ const { askPrompt } = require('../prompt/prompt.js')
 const { fork } = require('child_process')
 console.log('\tMashinlar!\n1. BMW\n2. Mercedes-benz ');
 // const choose:number=askPrompt('>>>')
-const choose: number = 3
+const choose: number = 1
 // ----------------------------------------------------------------------
 function print(item:object):void{
     console.log(`Model: ${item.model}`);
@@ -15,6 +15,7 @@ function print(item:object):void{
 // ----------------------------------------------------------------------
 if (choose == 1) {
     console.clear()
+    console.log('Mercedes-benz\n');
     try {
         const child = fork('./MERS.js');
         child.send({ message: 'mers' });

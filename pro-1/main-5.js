@@ -2,7 +2,7 @@ var askPrompt = require('../prompt/prompt.js').askPrompt;
 var fork = require('child_process').fork;
 console.log('\tMashinlar!\n1. BMW\n2. Mercedes-benz ');
 // const choose:number=askPrompt('>>>')
-var choose = 3;
+var choose = 1;
 // ----------------------------------------------------------------------
 function print(item) {
     console.log("Model: ".concat(item.model));
@@ -15,6 +15,7 @@ function print(item) {
 // ----------------------------------------------------------------------
 if (choose == 1) {
     console.clear();
+    console.log('Mercedes-benz\n');
     try {
         var child = fork('./MERS.js');
         child.send({ message: 'mers' });
