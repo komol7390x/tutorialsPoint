@@ -1,8 +1,7 @@
 const { askPrompt } = require('../prompt/prompt.js')
 const { fork, spawn } = require('child_process')
 console.log('\tMashinlar!\n1. BMW\n2. Mercedes-benz ');
-// const choose:number=askPrompt('>>>')
-const choose: number = 2
+const choose:number=askPrompt('>>>')
 // ----------------------------------------------------------------------
 function print(item: object): void {
     console.log(`Model: ${item.model}`);
@@ -28,12 +27,34 @@ if (choose == 1) {
         });
         mers.on('error', (err) => console.log(err));
     } catch (error) {
-        console.log(`Not found ${error.message}`);
+        console.log(`Not found ${error.message}`)
     }
 }
 // ----------------------------------------------------------------------
 else if (choose == 2) {
+    try {
+        console.clear();
+        console.log('BMW\n');
+        const bmw = spawn('node', ['./BMW']);
+        let result = '';
+        bmw.stdout.on('data', (data) => {
+            result += data.toString()
+        });
+        bmw.stderr.on('data', (data) => {
+            console.error('Xatolik:', data.toString());
+        });
+        bmw.on('close', () => {
+            try {
+                const parsed = JSON.parse(result);
+                parsed.forEach(item => print(item))
+            } catch (err) {
+                console.error('JSON parse error:', err);
+            }
+        });
+    } catch (error) {
+        console.log(`Error not found ${error.message}`);
 
+    }
 }
 // ----------------------------------------------------------------------
 else {
