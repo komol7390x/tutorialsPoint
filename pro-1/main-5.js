@@ -1,6 +1,6 @@
 var askPrompt = require('../prompt/prompt.js').askPrompt;
 var _a = require('child_process'), fork = _a.fork, spawn = _a.spawn;
-console.log('\tMashinlar!\n1. BMW\n2. Mercedes-benz ');
+console.log('\tMashinlar!\n1. Mercedes-benz \n2. BMW\n');
 var choose = askPrompt('>>>');
 // ----------------------------------------------------------------------
 function print(item) {
@@ -14,10 +14,10 @@ function print(item) {
 // ----------------------------------------------------------------------
 if (choose == 1) {
     console.clear();
-    console.log('Mercedes-benz\n');
+    console.log('Mercedes-benz\n')
     try {
         var mers = fork('./MERS.js');
-        mers.send({ message: 'mers' });
+        mers.send({ message: 'mers' })
         mers.on('message', function (data) {
             if (Object.keys(data) != 'watch:require') {
                 data.forEach(function (element) {
