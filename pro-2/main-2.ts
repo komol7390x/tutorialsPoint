@@ -3,7 +3,8 @@ import { join } from "path";
 import { askPrompt } from "../prompt/prompt";
 import { copyFileWithProgress } from './progress.js'
 
-const orginalFolder = join(__dirname, "orginal");
+// const orginalFolder = join(__dirname, "orginal");
+const orginalFolder=join(__dirname,'../../orginal')
 const cloneFolder = join(__dirname, "clone");
 if(!fs.existsSync(cloneFolder)){
   fs.mkdirSync(cloneFolder,{recursive:true})

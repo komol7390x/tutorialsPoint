@@ -40,7 +40,8 @@ var fs = require("fs");
 var path_1 = require("path");
 var prompt_1 = require("../prompt/prompt");
 var progress_js_1 = require("./progress.js");
-var orginalFolder = (0, path_1.join)(__dirname, "orginal");
+// const orginalFolder = join(__dirname, "orginal");
+var orginalFolder = (0, path_1.join)(__dirname, '../../orginal');
 var cloneFolder = (0, path_1.join)(__dirname, "clone");
 if (!fs.existsSync(cloneFolder)) {
     fs.mkdirSync(cloneFolder, { recursive: true });
