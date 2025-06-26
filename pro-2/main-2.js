@@ -38,9 +38,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var path_1 = require("path");
-var prompt_1 = require("../prompt/prompt"); // bu sizning custom prompt funksiyangiz
+var prompt_1 = require("../prompt/prompt");
+var progress_js_1 = require("./progress.js");
 var orginalFolder = (0, path_1.join)(__dirname, "orginal");
 var cloneFolder = (0, path_1.join)(__dirname, "clone");
+if (!fs.existsSync(cloneFolder)) {
+    fs.mkdirSync(cloneFolder, { recursive: true });
+}
 console.log("\tMenu\n\n1. Copy File\n2. Move File\n3. Show Folder");
 var showFolder = function () {
     var files = fs.readdirSync(orginalFolder);
@@ -74,8 +78,15 @@ var copyFile = function () { return __awaiter(void 0, void 0, void 0, function (
                 fromPath = (0, path_1.join)(orginalFolder, selectedFile);
                 toPath = (0, path_1.join)(cloneFolder, selectedFile);
                 try {
-                    fs.copyFileSync(fromPath, toPath);
-                    console.log("\u2705 Fayl nusxalandi: ".concat(selectedFile));
+                    (0, progress_js_1.copyFileWithProgress)(fromPath, toPath, function (percent) {
+                        console.clear();
+                        console.log("\uD83D\uDCE6 Nusxalanmoqda: ".concat(percent, "%"));
+                        if (percent >= 100) {
+                            console.clear();
+                            console.log("".concat(selectedFile, " faylni nusxalandi :)"));
+                            return;
+                        }
+                    });
                 }
                 catch (err) {
                     console.error("❌ Xatolik:", err.message);
@@ -105,9 +116,19 @@ var moveFile = function () { return __awaiter(void 0, void 0, void 0, function (
                 fromPath = (0, path_1.join)(orginalFolder, selectedFile);
                 toPath = (0, path_1.join)(cloneFolder, selectedFile);
                 try {
-                    fs.renameSync(fromPath, toPath);
-                    console.clear();
-                    console.log("\u2705 Fayl ko'chirildi: ".concat(selectedFile));
+                    (0, progress_js_1.copyFileWithProgress)(fromPath, toPath, function (percent) {
+                        console.clear();
+                        console.log("\uD83D\uDCE6 Ko'chirilmoqda: ".concat(percent, "%"));
+                        if (percent >= 100) {
+                            console.clear();
+                            console.log("".concat(selectedFile, " file ko'chirildi :)"));
+                            fs.unlink(fromPath, function (err) {
+                                if (err) {
+                                    return;
+                                }
+                            });
+                        }
+                    });
                 }
                 catch (err) {
                     console.error("❌ Ko'chirishda xatolik:", err.message);

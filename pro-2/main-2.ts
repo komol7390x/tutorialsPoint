@@ -1,12 +1,14 @@
 import * as fs from "fs";
 import { join } from "path";
-const {copyFileWithProgress}=require('./progress')
-import { askPrompt } from "../prompt/prompt"; // bu sizning custom prompt funksiyangiz
+import { askPrompt } from "../prompt/prompt";
+import { copyFileWithProgress } from './progress.js'
 
 const orginalFolder = join(__dirname, "orginal");
 const cloneFolder = join(__dirname, "clone");
-
-console.log("\tMenu\n\n1. Copy File\n2. Move File\n3. Show Folder");
+if(!fs.existsSync(cloneFolder)){
+  fs.mkdirSync(cloneFolder,{recursive:true})
+}
+console.log("\tMenu\n\n1. Copy File\n2. Move File\n3. Show Folder")
 
 const showFolder = (): string[] => {                       //Show Folder
   const files = fs.readdirSync(orginalFolder);
@@ -24,7 +26,7 @@ const copyFile = async (): Promise<void> => {               //COPY
   console.log("COPY File\n\n")
   const files = showFolder();
   const ask = Number(await askPrompt("\n>>> "));
-console.clear()
+  console.clear()
   const selectedFile = files[ask - 1];
   if (!selectedFile) {
     console.error("❌ Tanlangan file topilmadi!");
@@ -35,8 +37,15 @@ console.clear()
   const toPath = join(cloneFolder, selectedFile)
 
   try {
-    fs.copyFileSync(fromPath, toPath);
-    console.log(`✅ Fayl nusxalandi: ${selectedFile}`);
+    copyFileWithProgress(fromPath, toPath, (percent) => {
+      console.clear();
+      console.log(`📦 Nusxalanmoqda: ${percent}%`);
+      if(percent>=100){
+        console.clear()
+        console.log(`${selectedFile} faylni nusxalandi :)`)
+        return
+      }
+    });
   } catch (err: any) {
     console.error("❌ Xatolik:", err.message);
   }
@@ -58,11 +67,21 @@ const moveFile = async (): Promise<void> => {               //MOVE
   const toPath = join(cloneFolder, selectedFile);
 
   try {
-    fs.renameSync(fromPath, toPath);
-    console.clear()
-    console.log(`✅ Fayl ko'chirildi: ${selectedFile}`);
+    copyFileWithProgress(fromPath, toPath, (percent) => {
+      console.clear();
+      console.log(`📦 Ko'chirilmoqda: ${percent}%`);
+      if(percent>=100){
+          console.clear();
+          console.log(`${selectedFile} file ko'chirildi :)`);
+            fs.unlink(fromPath,(err)=>{
+              if(err){
+                return
+              }
+            });
+      }
+    });
   } catch (err: any) {
-    console.error("❌ Ko'chirishda xatolik:", err.message);
+    console.error("❌ Ko'chirishda xatolik:", err.message)
   }
 };
 // ---------------------------------------------------------------------------
@@ -88,3 +107,5 @@ const showMenu = async (): Promise<void> => {               //MENU
 };
 // ---------------------------------------------------------------------------
 showMenu();
+
+
