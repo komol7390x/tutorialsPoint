@@ -32,6 +32,4 @@ function copyFileWithProgress(orginal, copy, onProgress) {
 
 module.exports = { copyFileWithProgress };
 
-const orginal=path.join(__dirname,'../../orginal/-set_caption.mp4')
-// console.log(orginal);
   
