@@ -1,5 +1,5 @@
 const fs = require("fs");
-const path = require("path");
+const path=require('node:path')
 
 function copyFileWithProgress(orginal, copy, onProgress) {
   const readStream = fs.createReadStream(orginal);
@@ -31,3 +31,7 @@ function copyFileWithProgress(orginal, copy, onProgress) {
 }
 
 module.exports = { copyFileWithProgress };
+
+const orginal=path.join(__dirname,'../../orginal/-set_caption.mp4')
+// console.log(orginal);
+  
