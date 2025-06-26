@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import { join } from "path";
+const {copyFileWithProgress}=require('./progress')
 import { askPrompt } from "../prompt/prompt"; // bu sizning custom prompt funksiyangiz
 
 const orginalFolder = join(__dirname, "orginal");
