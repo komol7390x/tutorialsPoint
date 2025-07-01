@@ -4,6 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start1": "node --watch project-1/src/server-1.js"
+    "start1": "node --watch project-1/src/server-1.js",
+    "start2": "node --watch project-2/src/server-2.js"
   }
 }
