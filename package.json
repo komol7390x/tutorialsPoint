@@ -1,0 +1,9 @@
+{
+  "name": "bank",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start1": "node --watch project-1/src/server-1.js"
+  }
+}
