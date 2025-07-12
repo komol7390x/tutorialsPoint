@@ -5,13 +5,15 @@
   "type": "module",
   "scripts": {
     "start": "node --watch ",
-    "dev": "node --watch /mongodb_darsliklar/dars-3/main-3.js"
+    "dev": "node --watch ./mongodb_darsliklar/dars-3/main-3.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "joi": "^17.13.3"
   }
 }
