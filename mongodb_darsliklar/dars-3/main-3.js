@@ -30,10 +30,7 @@ server.get('/api/books', (_, res) => {
 
 server.post('/api/books', (req, res) => {
     try {
-        const bookSchema = Joi.object({
-            name: Joi.string().required().min(3)
-        })
-        const result = bookSchema.validate(req.body)
+        const result = checkValidate(req.body)
         if (result.error) {
             return res.status(400).json({
                 message: `bad request ${JSON.stringify(result.error.details[0].message)}`,
@@ -100,5 +97,35 @@ server.put('/api/books/:id', (req, res) => {
         })
     }
 })
+
+server.delete('/api/books/:id', (req, res) => {
+    try {
+        const id = req.params.id
+        const index = books.findIndex(item => item.id == id)
+        if (!index) {
+            return res.status(404).json({
+                message: 'not found user',
+                data: {}
+            })
+        }
+        books.splice(index, 1)
+        return res.status(200).json({
+            message: 'success',
+            data: {}
+        })
+    } catch (error) {
+        return res.status(500).json({
+            message: `error get server ${error.message}`,
+            data: {}
+        })
+    }
+})
+const checkValidate = (item) => {
+    const bookSchema = Joi.object({
+        name: Joi.string().required().min(3)
+    })
+    const result = bookSchema.validate(item)
+    return result
+}
 const PORT = +process.env.PORT
 server.listen(PORT, () => console.log(`Server is running:`, PORT))
