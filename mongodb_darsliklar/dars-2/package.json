@@ -1,0 +1,16 @@
+{
+  "name": "math-add-minus2",
+  "version": "1.0.1",
+  "description": "All math method",
+  "main": "math.js",
+  "type": "module",
+  "scripts": {},
+  "keywords": [
+    "add",
+    "minus",
+    "multiplication",
+    "division"
+  ],
+  "author": "Komol Parpixodjayev",
+  "license": "ISC"
+}
