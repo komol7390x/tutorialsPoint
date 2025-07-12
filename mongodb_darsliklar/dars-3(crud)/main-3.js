@@ -13,7 +13,10 @@ const books = [
     { id: 3, name: "Javohir" },
     { id: 4, name: "Hamdam" },
 ]
-
+server.use((req, res, next) => {
+    console.log('Log yozish...');
+    // next()
+})
 server.get('/api/books', (_, res) => {
     try {
         return res.status(200).json({
