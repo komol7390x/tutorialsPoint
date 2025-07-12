@@ -1,9 +1,11 @@
 import express from 'express'
 import { config } from 'dotenv';
 import Joi from 'joi';
+import helmet from 'helmet';
 
 import { autentenfikatsiya } from './autenfikatsiya.js'
 import { logger } from './logger.js'
+import morgan from 'morgan';
 
 config()
 const server = express();
@@ -15,10 +17,15 @@ const books = [
     { id: 4, name: "Hamdam" },
 ]
 
-server.use(express.json())
+server.use(express.json());
+server.use(express.urlencoded());
+server.use(express.static('public'))
 
-server.use(autentenfikatsiya)
-server.use(logger)
+server.use(helmet())
+server.use(morgan('combined'))
+
+// server.use(autentenfikatsiya)
+// server.use(logger)
 
 server.get('/api/books', (_, res) => {
     try {
@@ -128,7 +135,7 @@ server.delete('/api/books/:id', (req, res) => {
 })
 const checkValidate = (item) => {
     const bookSchema = Joi.object({
-        name: Joi.string().required().min(3)
+        name: Joi.string().required().min(3).unique()
     })
     const result = bookSchema.validate(item)
     return result
