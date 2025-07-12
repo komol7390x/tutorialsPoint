@@ -2,10 +2,11 @@ import express from 'express'
 import { config } from 'dotenv';
 import Joi from 'joi';
 
+import { autentenfikatsiya } from './autenfikatsiya.js'
+import { logger } from './logger.js'
+
 config()
 const server = express();
-
-server.use(express.json())
 
 const books = [
     { id: 1, name: "Alisher" },
@@ -13,10 +14,12 @@ const books = [
     { id: 3, name: "Javohir" },
     { id: 4, name: "Hamdam" },
 ]
-server.use((req, res, next) => {
-    console.log('Log yozish...');
-    // next()
-})
+
+server.use(express.json())
+
+server.use(autentenfikatsiya)
+server.use(logger)
+
 server.get('/api/books', (_, res) => {
     try {
         return res.status(200).json({

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node --watch ",
-    "dev": "node --watch ./mongodb_darsliklar/dars-3/main-3.js"
+    "dev": "node --watch ./mongodb_darsliklar/dars-3(crud)/main-3.js"
   },
   "keywords": [],
   "author": "",
