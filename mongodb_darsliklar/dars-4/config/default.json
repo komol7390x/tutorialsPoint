@@ -1,0 +1,8 @@
+{
+    "status":"production",
+    "port": 8080,
+    "db": {
+      "host": "dbserver.prod",
+      "name": "myapp_prod"
+    }
+}
