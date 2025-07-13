@@ -62,7 +62,7 @@ app.use(express.static('public'));
 
 # 42-dars process.env.NODE_ENV (Production va Development)
 
-- Bu yerda Project imiza Production boldi mi yoki Haliyam Ishlab chiqarish jarayonidami shuni tekshirish
+- Bu yerda Projectimiza Production boldimi yoki hali ham Ishlab chiqarish jarayonidami shuni tekshirish!
 
 ## 📦javascripts Development
 
