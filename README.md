@@ -40,7 +40,7 @@ server.use(morgan())
 
 # 41-dars express.urlencoded() va express.static()
 
-## javascripts express.urlencoded()
+## 📦javascripts express.urlencoded()
 
 ```
 app.use(express.urlencoded({ extended: true }));
@@ -49,3 +49,13 @@ app.use(express.urlencoded({ extended: true }));
 - Middleware, kelayotgan form ma'lumotlarini (body) o'qish uchun ishlatiladi.
   Masalan, HTML <form> yuborilganda req.bodyga joylaydi.
 - Bu application/x-www-form-urlencoded formatini parse qiladi.
+
+## 📦javascripts express.static()
+
+```
+app.use(express.static('public'));
+```
+
+- Middleware, static fayllarni (HTML, CSS, rasm) xizmat qilish uchun ishlatiladi.
+
+- /public/style.css => http://localhost:3000/style.css
