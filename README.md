@@ -6,8 +6,6 @@
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-
-
 server.use(helmet())
 server.use(morgan('combined'))
 ```
