@@ -25,3 +25,11 @@ import morgan from 'morgan';
 
 server.use(morgan())
 ```
+
+| Format       | Tushuntirishi                                                           |
+| ------------ | ----------------------------------------------------------------------- |
+| `'dev'`      | Rangi va qisqa                                                          |
+| `'combined'` | Apache\`ning kengaytirilgan log formatida (IP, user-agent va boshqalar) |
+| `'common'`   | Apache umumiy log formati                                               |
+| `'short'`    | Qisqa format                                                            |
+| `'tiny'`     | Juda qisqa format                                                       |
