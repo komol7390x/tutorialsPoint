@@ -107,6 +107,8 @@ console.log(process.env.NODE_ENV)
 
 # 43-dars JSON faylar (Production,Development)
 
+- Productiongachiqarishdan oldin developmentda ishlab shu nuhitda sozlaymiza
+
 ## JSON production.json
 
 ```
