@@ -4,10 +4,18 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch "
+    "start": "node --watch ",
+    "dev": "node --watch ./mongodb_darsliklar/dars-3_crud/main-3.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "joi": "^17.13.3",
+    "morgan": "^1.10.0"
+  }
 }
