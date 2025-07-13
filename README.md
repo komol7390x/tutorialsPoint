@@ -10,7 +10,7 @@ server.use(helmet())
 server.use(morgan(combined))
 ```
 
-## Vazifasi: HTTP javobiga xavfsizlik headerlari qo'shib, saytingizni hujumlardan himoya qiladi:
+- Vazifasi: HTTP javobiga xavfsizlik headerlari qo'shib, saytingizni hujumlardan himoya qiladi:
 
 ## XSS (skript hujumlaridan)
 
