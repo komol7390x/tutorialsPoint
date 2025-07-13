@@ -102,3 +102,45 @@ NODE_ENV=production node app.js
 ```
 console.log(process.env.NODE_ENV)
 ```
+
+## 43-dars JSON faylar (Production,Development)
+
+# JSON production.json
+
+```
+{
+    "status":"production",
+    "port": 8080,
+    "db": {
+      "host": "dbserver.prod",
+      "name": "myapp_prod"
+    }
+  }
+```
+
+# JSON development.json
+
+```
+{
+    "status":"development",
+    "port": 3000,
+    "db": {
+      "host": "localhost",
+      "name": "myapp_dev"
+    }
+  }
+```
+
+# javascripts app.js
+
+```
+const port = config.get('port');
+const dbHost = config.get('db.host');
+const status = config.get('status')
+
+console.log(status);
+console.log(`Server ${port}-portda ishlaydi`);
+console.log(`DB host: ${dbHost}`);
+```
+
+---
