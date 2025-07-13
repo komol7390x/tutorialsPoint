@@ -107,7 +107,7 @@ console.log(process.env.NODE_ENV)
 
 # 43-dars confi faylari bilan ishlash JSON faylar (Production,Development)
 
-- Productionga chiqarishdan oldin developmentda ishlab shu nuhitda sozlaymiza
+- Productionga chiqarishdan oldin developmentda ishlab shu muhitda dasturni sozlaymiza
 
 ## terminal
 
