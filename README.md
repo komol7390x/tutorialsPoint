@@ -34,5 +34,5 @@ server.use(morgan())
 | `'short'`    | Qisqa format                                                            |
 | `'tiny'`     | Juda qisqa format                                                       |
 
-- tiny GET / 200 12.345 ms - 12
-- combined ::1 - - [11/Jul/2025:12:34:56 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0 Safari/537.36"
+- 'tiny' GET / 200 12.345 ms - 12
+- 'combined' ::1 - - [11/Jul/2025:12:34:56 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0 Safari/537.36"
