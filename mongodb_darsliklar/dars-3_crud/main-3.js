@@ -2,10 +2,10 @@ import express from 'express'
 import { config } from 'dotenv';
 import Joi from 'joi';
 import helmet from 'helmet';
+import morgan from 'morgan';
 
 import { autentenfikatsiya } from './autenfikatsiya.js'
 import { logger } from './logger.js'
-import morgan from 'morgan';
 
 config()
 const server = express();
