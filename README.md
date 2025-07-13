@@ -85,11 +85,9 @@ if (app.get('env')==='developmet'){
 }
 ```
 
-## 📦javascripts Production
+## 📦javascripts Production qilish (developmet=>production)
 
 ## Linux console
-
-- Production qilish (developmet=>production)
 
 ```
 export NODE_ENV=production
