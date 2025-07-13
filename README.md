@@ -1,13 +1,11 @@
 # 39-dars helmet() va morgan()
 
-## 📦 javascripts
+## 📦 javascripts helmet()
 
 ```
 import helmet from helmet;
-import morgan from morgan;
 
 server.use(helmet())
-server.use(morgan(combined))
 ```
 
 - Vazifasi: HTTP javobiga xavfsizlik headerlari qo'shib, saytingizni hujumlardan himoya qiladi:
