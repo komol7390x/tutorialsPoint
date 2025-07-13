@@ -68,7 +68,15 @@ app.use(express.static('public'));
 
 - Bu yerda Projectimiza Production boldimi yoki hali ham Ishlab chiqarish jarayonidami shuni tekshirish!
 
-## 📦javascripts Development
+## 📦Linux console Development - qilish (production=>developmet)
+
+```
+NODE_ENV=production node app.js
+export NODE_ENV=development node app.js
+
+```
+
+## 📦javascripts Development tekshirish
 
 ```
 if (app.get('env')==='developmet'){
@@ -81,12 +89,12 @@ if (app.get('env')==='developmet'){
 
 ## Linux console
 
-- Production qilish
+- Production qilish (developmet=>production)
 
 ```
-set NODE_ENV=production
+export NODE_ENV=production
 
-echo %NODE_ENV%
+NODE_ENV=production node app.js
 ```
 
 ## 📦javascripts
