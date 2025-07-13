@@ -42,11 +42,10 @@ server.use(morgan())
 
 ## javascripts express.urlencoded()
 
-```
-app.use(express.urlencoded({ extended: true }));
-
-```
+````
+app.use(express.urlencoded({ extended: true }));```
 
 - Middleware, kelayotgan form ma'lumotlarini (body) o‘qish uchun ishlatiladi.
   Masalan, HTML <form> yuborilganda req.bodyga joylaydi.
 - Bu application/x-www-form-urlencoded formatini parse qiladi.
+````
