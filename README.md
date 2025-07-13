@@ -103,9 +103,9 @@ NODE_ENV=production node app.js
 console.log(process.env.NODE_ENV)
 ```
 
-## 43-dars JSON faylar (Production,Development)
+# 43-dars JSON faylar (Production,Development)
 
-# JSON production.json
+## JSON production.json
 
 ```
 {
@@ -118,7 +118,7 @@ console.log(process.env.NODE_ENV)
   }
 ```
 
-# JSON development.json
+## JSON development.json
 
 ```
 {
@@ -131,7 +131,7 @@ console.log(process.env.NODE_ENV)
   }
 ```
 
-# javascripts app.js
+## javascripts app.js
 
 ```
 const port = config.get('port');
