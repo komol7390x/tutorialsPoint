@@ -1,7 +1,10 @@
 # 40-dars helmet() va morgan()
 
-## 📦 javascripts helmet()
-
+##  helmet() terminal
+```
+npm i helmet
+```
+## 📦 javascripts
 ```
 import helmet from 'helmet';
 
@@ -18,8 +21,11 @@ server.use(helmet())
 
 - HTTPS majburiyligi (HSTS)
 
-## 📦 javascripts morgan()
-
+## morgan() terminal
+```
+npm i morgan
+```
+## 📦 javascripts
 ```
 import morgan from 'morgan';
 
