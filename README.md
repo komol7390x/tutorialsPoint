@@ -1,4 +1,4 @@
-# 39-dars helmet() va #morgan()
+# 39-dars helmet() va morgan()
 
 ## javascripts
 
