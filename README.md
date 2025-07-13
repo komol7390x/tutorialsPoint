@@ -1,10 +1,13 @@
 # 40-dars helmet() va morgan()
 
-##  helmet() terminal
+## helmet() terminal
+
 ```
 npm i helmet
 ```
+
 ## 📦 javascripts
+
 ```
 import helmet from 'helmet';
 
@@ -22,10 +25,13 @@ server.use(helmet())
 - HTTPS majburiyligi (HSTS)
 
 ## morgan() terminal
+
 ```
 npm i morgan
 ```
+
 ## 📦 javascripts
+
 ```
 import morgan from 'morgan';
 
@@ -160,3 +166,41 @@ console.log(`DB host: ${dbHost}`);
 ```
 
 ---
+
+# 44-dars Pug view Engine
+
+## terminal
+
+```
+npm i pug
+```
+
+## view folder ichida index.pug ochamiza
+
+```
+html
+    head
+        title = title
+
+    body
+        h1=greeting
+```
+
+## 📦javascripts da app.js da shunday yozmiza
+
+```
+import express from 'express'
+
+const app = express()
+
+app.use(express.json())
+app.set('view engine', 'pug')
+
+app.get('/', (req, res) => {
+    res.render('index', { title: 'my express app', greeting: 'SALOM' })
+})
+
+app.listen(5000, () => console.log('Server is runing ', 5000))
+```
+
+- Bu bizaga html da javascripts boglash uchun kerak
