@@ -59,3 +59,32 @@ app.use(express.static('public'));
 - Middleware, static fayllarni (HTML, CSS, rasm) xizmat qilish uchun ishlatiladi.
 
 - /public/style.css => http://localhost:3000/style.css
+
+# 42-dars process.env.NODE_ENV (Production va Development)
+
+## 📦javascripts Development
+
+```
+if (app.get('env')==='developmet'){
+  app.use(morgan('tiny'))
+  console.log('Logger ishlayapti')
+}
+```
+
+## 📦javascripts Production
+
+## Linux console
+
+- Production qilish
+
+```
+set NODE_ENV=production
+
+echo %NODE_ENV%
+```
+
+## 📦javascripts
+
+```
+console.log(process.env.NODE_ENV)
+```
