@@ -1,6 +1,12 @@
 # 40-dars helmet() va morgan()
 
-## 📦 javascripts helmet()
+## helmet() terminal
+
+```
+npm i helmet
+```
+
+## 📦 javascripts
 
 ```
 import helmet from 'helmet';
@@ -18,7 +24,13 @@ server.use(helmet())
 
 - HTTPS majburiyligi (HSTS)
 
-## 📦 javascripts morgan()
+## morgan() terminal
+
+```
+npm i morgan
+```
+
+## 📦 javascripts
 
 ```
 import morgan from 'morgan';
@@ -103,9 +115,19 @@ NODE_ENV=production node app.js
 console.log(process.env.NODE_ENV)
 ```
 
-## 43-dars JSON faylar (Production,Development)
+---
 
-# JSON production.json
+# 43-dars confi faylari bilan ishlash JSON faylar (Production,Development)
+
+- Productionga chiqarishdan oldin developmentda ishlab shu muhitda dasturni sozlaymiza
+
+## terminal
+
+```
+npm i config
+```
+
+## JSON production.json
 
 ```
 {
@@ -118,7 +140,7 @@ console.log(process.env.NODE_ENV)
   }
 ```
 
-# JSON development.json
+## JSON development.json
 
 ```
 {
@@ -131,7 +153,7 @@ console.log(process.env.NODE_ENV)
   }
 ```
 
-# javascripts app.js
+## javascripts app.js
 
 ```
 const port = config.get('port');
@@ -144,3 +166,41 @@ console.log(`DB host: ${dbHost}`);
 ```
 
 ---
+
+# 44-dars Pug view Engine
+
+## terminal
+
+```
+npm i pug
+```
+
+## view folder ichida index.pug ochamiza
+
+```
+html
+    head
+        title = title
+
+    body
+        h1=greeting
+```
+
+## 📦javascripts da app.js da shunday yozmiza
+
+```
+import express from 'express'
+
+const app = express()
+
+app.use(express.json())
+app.set('view engine', 'pug')
+
+app.get('/', (req, res) => {
+    res.render('index', { title: 'my express app', greeting: 'SALOM' })
+})
+
+app.listen(5000, () => console.log('Server is runing ', 5000))
+```
+
+- Bu bizaga html da javascripts boglash uchun kerak
