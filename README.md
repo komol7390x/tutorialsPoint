@@ -60,6 +60,8 @@ app.use(express.static('public'));
 
 - /public/style.css => http://localhost:3000/style.css
 
+---
+
 # 42-dars process.env.NODE_ENV (Production va Development)
 
 - Bu yerda Projectimiza Production boldimi yoki hali ham Ishlab chiqarish jarayonidami shuni tekshirish!
