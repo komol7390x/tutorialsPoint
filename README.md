@@ -1,4 +1,4 @@
-# 39-dars helmet() va morgan()
+# 40-dars helmet() va morgan()
 
 ## 📦 javascripts helmet()
 
@@ -37,3 +37,16 @@ server.use(morgan())
 - 'tiny' GET / 200 12.345 ms - 12
 
 * 'combined' ::1 - - [11/Jul/2025:12:34:56 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0 Safari/537.36"
+
+# 41-dars express.urlencoded() va express.static()
+
+## javascripts express.urlencoded()
+
+```
+app.use(express.urlencoded({ extended: true }));
+
+```
+
+- Middleware, kelayotgan form ma'lumotlarini (body) o‘qish uchun ishlatiladi.
+  Masalan, HTML <form> yuborilganda req.bodyga joylaydi.
+- Bu application/x-www-form-urlencoded formatini parse qiladi.
