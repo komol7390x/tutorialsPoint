@@ -3,7 +3,7 @@
 ## 📦 javascripts helmet()
 
 ```
-import helmet from helmet;
+import helmet from 'helmet';
 
 server.use(helmet())
 ```
@@ -17,3 +17,11 @@ server.use(helmet())
 - MIME sniffing (kontent tipini noto'g'ri aniqlash)
 
 - HTTPS majburiyligi (HSTS)
+
+## 📦 javascripts morgan()
+
+```
+import morgan from 'morgan';
+
+server.use(morgan())
+```
