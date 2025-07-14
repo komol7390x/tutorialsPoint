@@ -1,14 +1,8 @@
 import express from 'express'
-import { config } from 'dotenv';
 import Joi from 'joi';
-import helmet from 'helmet';
-import morgan from 'morgan';
 
-import { autentenfikatsiya } from './autenfikatsiya.js'
-import { logger } from './logger.js'
+const router = express.Router();
 
-config()
-const server = express();
 
 const books = [
     { id: 1, name: "Alisher" },
@@ -17,17 +11,7 @@ const books = [
     { id: 4, name: "Hamdam" },
 ]
 
-server.use(express.json());
-server.use(express.urlencoded());
-server.use(express.static('public'))
-
-server.use(helmet())
-server.use(morgan('combined'))
-
-// server.use(autentenfikatsiya)
-// server.use(logger)
-
-server.get('/api/books', (_, res) => {
+router.get('/', (_, res) => {
     try {
         return res.status(200).json({
             message: 'success',
@@ -41,7 +25,7 @@ server.get('/api/books', (_, res) => {
     }
 })
 
-server.post('/api/books', (req, res) => {
+router.post('/', (req, res) => {
     try {
         const result = checkValidate(req.body)
         if (result.error) {
@@ -66,7 +50,7 @@ server.post('/api/books', (req, res) => {
     }
 })
 
-server.get('/api/books/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     try {
         const id = req.params.id
         const result = books.find(item => item.id == id)
@@ -88,7 +72,7 @@ server.get('/api/books/:id', (req, res) => {
     }
 })
 
-server.put('/api/books/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     try {
         const id = req.params.id
         const index = books.findIndex(item => item.id == id)
@@ -111,7 +95,7 @@ server.put('/api/books/:id', (req, res) => {
     }
 })
 
-server.delete('/api/books/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     try {
         const id = req.params.id
         const index = books.findIndex(item => item.id == id)
@@ -140,5 +124,5 @@ const checkValidate = (item) => {
     const result = bookSchema.validate(item)
     return result
 }
-const PORT = +process.env.PORT
-server.listen(PORT, () => console.log(`Server is running:`, PORT))
+
+export default router
