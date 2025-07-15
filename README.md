@@ -219,7 +219,7 @@ sudo apt-get install mongodb-org-tools
 ## terminal ga data.json fily yolini berish kerak!
 
 ```
-mongoimport --db newData --collection yser  --file data.json  --jsonArray
+mongoimport --db newData --collection yser  --file data.json  --drop
 
 ```
 
