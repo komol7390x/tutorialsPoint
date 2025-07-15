@@ -21,7 +21,7 @@ app.post('/api/categories', (req, res) => {
     }
 
     const category = {
-        id: categories.length + 1,
+        id: categories.length ? categories?.id + 1 : 1,
         name: req.body.name
     };
     categories.push(category);
@@ -36,7 +36,7 @@ app.get('/api/categories/:id', (req, res) => {
 });
 
 app.put('/api/categories/:id', (req, res) => {
-    const category = categories.find(c => c.id === parseInt(req.params.id));
+    const category = categories.find(item => item.id === parseInt(req.params.id));
     if (!category)
         return res.status(404).send('Berilgan IDga teng bo\'lgan toifa topilmadi');
 
@@ -50,11 +50,10 @@ app.put('/api/categories/:id', (req, res) => {
 });
 
 app.delete('/api/categories/:id', (req, res) => {
-    const category = categories.find(c => c.id === parseInt(req.params.id));
+    const category = categories.find(item => item.id === parseInt(req.params.id));
     if (!category)
         return res.status(404).send('Berilgan IDga teng bo\'lgan toifa topilmadi');
-
-    const categoryIndex = categories.indexOf(category);
+    const categoryIndex = categories.findIndex(category);
     categories.splice(categoryIndex, 1);
     res.send(category);
 });

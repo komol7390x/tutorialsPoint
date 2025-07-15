@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import { version } from "react";
 
-mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost/test')
     .then(() => {
         console.log('MongoDBga ulanish hosil qilindi...');
     })
@@ -9,17 +10,17 @@ mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useUnified
     });
 
 const SizeSchema = new mongoose.Schema({
-    h: Number,
-    w: Number,
-    uom: String
+    height: { type: Number, required: true },
+    width: { type: Number, required: true },
+    uom: { type: String, required: true }
 })
 
 const inventorySchema = new mongoose.Schema({
-    item: String,
-    qty: Number,
+    item: { type: String, required: true, unique: true },
+    quantity: { type: Number, required: true },
     size: SizeSchema,
-    status: String
-}, { collection: 'inventory' });
+    status: { type: String, required: true }
+}, { timestamps: true, versionKey: false });
 
 const Inventory = mongoose.model('Inventory', inventorySchema);
 
@@ -27,14 +28,14 @@ async function getInventoryItems1() {
     return await Inventory
         .find({ status: 'A' })
         .sort({ item: 1 })
-        .select({ item: 1, qty: 1, _id: 0 })
+        .select({ item: 1, quantity: 1, _id: 0 })
 }
 
 async function getInventoryItems2() {
     return await Inventory
         .find()
-        .or([{ qty: { $lte: 50 } }, { item: /.*l.*/i }])
-        .sort({ qty: -1 })
+        .or([{ quantity: { $lte: 50 } }, { item: /.*l.*/i }])
+        .sort({ quantity: -1 })
 }
 
 async function run() {

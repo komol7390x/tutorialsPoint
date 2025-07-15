@@ -66,4 +66,4 @@ function validateCategory(category) {
     return Joi.validate(category, schema);
 }
 
-module.exports = router;
+export default router
