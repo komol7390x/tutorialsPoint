@@ -1,5 +1,7 @@
 import express from 'express'
 import categoriesRoute from './routes/categories.js'
+import { config } from 'dotenv'
+config()
 
 const app = express();
 app.use(express.json());

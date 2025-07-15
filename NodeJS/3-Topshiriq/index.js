@@ -1,13 +1,17 @@
-import mongoose from "mongoose";
-import { version } from "react";
+import { connect } from "mongoose";
+import { config } from 'dotenv'
+config()
 
-mongoose.connect('mongodb://localhost/test')
-    .then(() => {
-        console.log('MongoDBga ulanish hosil qilindi...');
-    })
-    .catch((err) => {
-        console.error('MongoDBga ulanish vaqtida xato ro\'y berdi...', err);
-    });
+const connectDB = async () => {
+    try {
+        await connect(process.env.MONGODB_URI)
+        console.log('Server is connect to database');
+
+    } catch (error) {
+        console.log(`error to connect database`, error.message);
+        process.exit(1)
+    }
+}
 
 const SizeSchema = new mongoose.Schema({
     height: { type: Number, required: true },
@@ -39,6 +43,7 @@ async function getInventoryItems2() {
 }
 
 async function run() {
+    await connectDB()
     const items1 = await getInventoryItems2();
     const items2 = await getInventoryItems1();
     console.log(items1);
