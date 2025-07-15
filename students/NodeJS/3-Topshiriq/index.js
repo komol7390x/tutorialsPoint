@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
+
 mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('MongoDBga ulanish hosil qilindi...');
@@ -37,8 +38,10 @@ async function getInventoryItems2() {
 }
 
 async function run() {
-    const items = await getInventoryItems2();
-    console.log(items);
+    const items1 = await getInventoryItems2();
+    const items2 = await getInventoryItems1();
+    console.log(items1);
+    console.log(items2);
 }
 
 run();

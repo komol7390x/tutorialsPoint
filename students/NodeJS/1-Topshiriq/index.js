@@ -1,5 +1,6 @@
-const express = require('express');
-const Joi = require('joi');
+import express from 'express'
+import Joi from 'joi';
+
 const app = express();
 app.use(express.json());
 
@@ -28,10 +29,9 @@ app.post('/api/categories', (req, res) => {
 });
 
 app.get('/api/categories/:id', (req, res) => {
-    const category = categories.find(c => c.id === parseInt(req.params.id));
+    const category = categories.find(item => item.id === (req.params.id));
     if (!category)
         return res.status(404).send('Berilgan IDga teng bo\'lgan toifa topilmadi');
-
     res.send(category);
 });
 

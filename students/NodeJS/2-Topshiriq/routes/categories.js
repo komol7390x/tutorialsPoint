@@ -1,6 +1,5 @@
-
-const express = require('express');
-const Joi = require('joi');
+import express from 'express'
+import Joi from 'joi';
 const router = express.Router();
 
 const categories = [
