@@ -20,18 +20,16 @@ await connectDB()
 const bookSchema = new Schema({
     name: { type: String, required: true, minlength: 3, maxlength: 50, unique: true },
     author: { type: String },
-    tags: [{
-        isAsync: true,
-        type: String, validator: {
-            validator: (val, callback) => {
-                setTimeout(() => {
-                    const result = val.lenght > 0 && val
-                    callback(result)
-                }, 5000)
+    tags: {
+        type: [String],
+        validate: {
+            validator: async function (val) {
+                await new Promise(resolve => setTimeout(resolve, 5000));
+                return val.length > 0;
             },
-            message: 'Kitob kamida bitta tegi bo\'lish kerak'
+            message: "Kitob kamida bitta tegi bo'lishi kerak"
         }
-    }],
+    },
     data: { type: Date, default: Date.now },
     isPublished: { type: Boolean, default: false },
     price: {
@@ -102,7 +100,7 @@ const updateUser = async (id, newName) => {
     }
 }
 const run = async () => {
-    // getAllUser()
+    getAllUser()
     // createBook()
     // getUserByName('Harry Potter')
     // updateUser('68765a34c8e0e237a6707392', "Lord2 of rings")
