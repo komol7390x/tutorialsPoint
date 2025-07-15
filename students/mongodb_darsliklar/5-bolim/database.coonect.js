@@ -59,6 +59,11 @@ const getUserByName = async () => {
     console.log(user);
 
 }
+const updateUser = async (id) => {
+    const update = await Book.findOne({ id: id })
+    const newUpdate = update({ _id: id }, { $set: { name: "Lord of rings" } })
+    book.save(newUpdate)
+}
 // getAllUser()
 // createBook()
-getUserByName()
+// getUserByName()
