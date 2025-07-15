@@ -27,15 +27,14 @@ router.post('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    const category = categories.find(c => c.id === parseInt(req.params.id));
+    const category = categories.find(item => item.id == req.params.id);
     if (!category)
         return res.status(404).send('Berilgan IDga teng bo\'lgan toifa topilmadi');
-
     res.send(category);
 });
 
 router.put('/:id', (req, res) => {
-    const category = categories.find(c => c.id === parseInt(req.params.id));
+    const category = categories.find(item => item.id == req.params.id);
     if (!category)
         return res.status(404).send('Berilgan IDga teng bo\'lgan toifa topilmadi');
 
@@ -43,13 +42,12 @@ router.put('/:id', (req, res) => {
     if (error) {
         return res.status(400).send(error.details[0].message);
     }
-
     category.name = req.body.name;
     res.send(category);
 });
 
 router.delete('/:id', (req, res) => {
-    const category = categories.find(c => c.id === parseInt(req.params.id));
+    const category = categories.find(item => item.id == req.params.id);
     if (!category)
         return res.status(404).send('Berilgan IDga teng bo\'lgan toifa topilmadi');
 
