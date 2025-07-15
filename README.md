@@ -204,3 +204,23 @@ app.listen(5000, () => console.log('Server is runing ', 5000))
 ```
 
 - Bu bizaga html da javascripts boglash uchun kerak
+
+# 56-dars MongoDB ga file Import qilish!
+
+## terminal 📦Linux ga mongoimport faylni yuklab olish
+
+```
+which mongoimport
+
+sudo apt-get install mongodb-org-tools
+
+```
+
+## terminal ga data.json fily yolini berish kerak!
+
+```
+mongoimport --db newData --collection yser  --file data.json  --jsonArray
+
+```
+
+---
