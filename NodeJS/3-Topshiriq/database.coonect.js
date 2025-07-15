@@ -1,6 +1,7 @@
 import { connect, model, Schema } from 'mongoose';
 import { config } from 'dotenv'
 import { join } from 'path'
+import { get } from 'http';
 
 
 const envPath = join(process.cwd(), '../../.env')
@@ -34,6 +35,8 @@ const bookSchema = new Schema({
     isPublished: { type: Boolean, default: false },
     price: {
         type: Number,
+        get: (val) => Math.round(val),
+        set: (val) => Math.round(val),
         required: () => {
             return this.isPublished
         },
@@ -88,10 +91,13 @@ const getUserByName = async (newName) => {
     console.log(user);
 
 }
-const updateUser = async (id, newName) => {
+const updateUser = async (newName) => {
+    const result = await Book.updateOne({ price: 1254 })
+    if (result.modifiedCount) {
+        console.log('Kitob qoshildi');
+    }
     const existing = await Book.findOne({ name: newName });
     if (!existing) {
-        const result = await Book.updateOne({ name: newName })
         if (result.modifiedCount) {
             console.log('Kitob qoshildi');
         }
@@ -100,9 +106,9 @@ const updateUser = async (id, newName) => {
     }
 }
 const run = async () => {
-    getAllUser()
+    // getAllUser()
     // createBook()
     // getUserByName('Harry Potter')
-    // updateUser('68765a34c8e0e237a6707392', "Lord2 of rings")
+    updateUser("Lord2 of rings4")
 }
 run()
