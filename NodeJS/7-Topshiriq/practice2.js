@@ -11,8 +11,8 @@ const AuthorSchema=new mongoose.Schema({
 const BookSchema= new mongoose.Schema({
   title: {type:String,minlength:3,maxlength:50},
   authorID: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'author',
+    type: [AuthorSchema],
+    ref: 'Author',
     required:true
   }
 })
