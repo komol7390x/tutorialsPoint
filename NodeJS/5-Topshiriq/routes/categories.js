@@ -1,8 +1,8 @@
+import {Router} from 'express'
+import mongoose from 'mongoose';
+import Joi from 'joi'
+const router = Router();
 
-const express = require('express');
-const Joi = require('joi');
-const router = express.Router();
-const mongoose = require('mongoose');
 
 const categorySchema = new mongoose.Schema({
   name: {
@@ -73,4 +73,4 @@ function validateCategory(category) {
   return Joi.validate(category, schema);
 }
 
-module.exports = router;
+export default router
