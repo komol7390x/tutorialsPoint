@@ -1,28 +1,6 @@
 import {Router} from 'express'
-import mongoose from 'mongoose';
-import Joi from 'joi'
+import {Customer,validateCustomer} from '../models/custemers.models.js'
 const router = Router();
-
-const customerSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 50
-    },
-    isVip: {
-        type: Boolean,
-        default: false
-    },
-    phone: {
-        type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 50
-    }
-});
-
-const Customer = mongoose.model('Customer', customerSchema);
 
 router.get('/', async (req, res) => {
     const customers = await Customer.find().sort('name');
@@ -44,14 +22,33 @@ router.post('/', async (req, res) => {
     res.status(201).send(customer);
 });
 
-function validateCustomer(customer) {
-    const schema = {
-        name: Joi.string().min(5).max(50).required(),
-        isVip: Joi.boolean().required(),
-        phone: Joi.string().min(5).max(50).required()
-    };
+router.get('/:id', async (req, res) => {
+  let customers = await Customer.findById(req.params.id);
+  if (!customers)
+    return res.status(404).send('Berilgan IDga teng bo\'lgan toifa topilmadi');
 
-    return Joi.validate(customer, schema);
-}
+  res.send(customers);
+});
+
+router.put('/:id', async (req, res) => {
+  const { error } = validateCategory(req.body);
+  if (error)
+    return res.status(400).send(error.details[0].message);
+
+  let customers = await Customer.findByIdAndUpdate(req.params.id, { name: req.body.name });
+
+  if (!customers)
+    return res.status(404).send('Berilgan IDga teng bo\'lgan toifa topilmadi');
+
+  res.send(customers);
+});
+
+router.delete('/:id', async (req, res) => {
+  let customers = await Customer.findByIdAndRemove(req.params.id);
+  if (!customers)
+    return res.status(404).send('Berilgan IDga teng bo\'lgan toifa topilmadi');
+
+  res.send(customers);
+});
 
 export default router

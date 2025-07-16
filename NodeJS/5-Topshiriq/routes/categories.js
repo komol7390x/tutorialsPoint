@@ -1,21 +1,8 @@
 import {Router} from 'express'
-import mongoose from 'mongoose';
-import Joi from 'joi'
+import { Category,validateCategory } from '../models/categories.models.js'
 const router = Router();
 
-
-const categorySchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    minlength: 5,
-    maxlength: 50
-  }
-});
-
-const Category = mongoose.model('Category', categorySchema);
-
-router.get('/', async (req, res) => {
+router.get('/', async (_, res) => {
   const categories = await Category.find().sort('name');
   res.send(categories);
 });
@@ -64,13 +51,5 @@ router.delete('/:id', async (req, res) => {
   res.send(category);
 });
 
-
-function validateCategory(category) {
-  const schema = {
-    name: Joi.string().min(3).required()
-  };
-
-  return Joi.validate(category, schema);
-}
 
 export default router

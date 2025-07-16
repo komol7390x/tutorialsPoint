@@ -1,30 +1,18 @@
 import express from 'express'
-import mongoose from 'mongoose';
 import {config} from 'dotenv'
 import {join} from 'path'
-
-const pathEnv=join(process.cwd(),'../../.env')
-config({path:pathEnv})
-console.log(pathEnv);
-
+const pathEnv1=join(process.cwd(),'.env')
+config({path:pathEnv1})
 
 import categoriesRoute from './routes/categories.js'
 import customersRoute from './routes/customers.js'
+import {connectDB} from './configs/database.js'
 
-const server = express();
-const connectDB = async () => {
-    try {
-        await mongoose.connect(process.env.MONGODB_URI)
-        console.log('Server is connect to database');
-
-    } catch (error) {
-        console.log(`error to connect database`, error.message);
-        process.exit(1)
-    }
-}
 await connectDB()
 
+const server = express();
 server.use(express.json());
+
 server.use('/api/categories', categoriesRoute);
 server.use('/api/customers', customersRoute);
 
