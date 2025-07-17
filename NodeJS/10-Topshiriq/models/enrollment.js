@@ -24,10 +24,9 @@ export const Enrollment = mongoose.model('Enrollment', new mongoose.Schema({
 }));
 
 export function validateEnrollment(enrollment) {
-  const schema = {
+  const schema = Joi.object({
     customerId: Joi.string().required(),
     courseId: Joi.string().required()
-  };
-  return Joi.validate(enrollment, schema);
+  });
+  return schema.validate(enrollment);
 }
-

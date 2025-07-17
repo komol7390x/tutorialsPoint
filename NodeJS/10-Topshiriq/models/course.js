@@ -29,12 +29,12 @@ export const Course = mongoose.model('Courses', new mongoose.Schema({
 }));
 
 export function validateCourse(course) {
-  const schema = {
+  const schema = Joi.object({
     title: Joi.string().min(3).max(50).required(),
     categoryId: Joi.string().required(),
     trainer: Joi.string().required(),
     status: Joi.string().required(),
     tags: Joi.array().items(Joi.string())
-  };
-  return Joi.validate(course, schema);
+  });
+  return schema.validate(course);
 }

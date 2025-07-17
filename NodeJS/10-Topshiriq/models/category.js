@@ -12,10 +12,10 @@ export const categorySchema = new mongoose.Schema({
 
 
 export function validateCategory(category) {
-    const schema = {
+    const schema =Joi.object({
         name: Joi.string().min(3).required()
-    };
-    return Joi.validate(category, schema);
+    })
+    return schema.validate(category);
 }
 
 

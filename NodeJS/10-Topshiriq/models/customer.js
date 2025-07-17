@@ -1,5 +1,5 @@
 import Joi from 'joi'
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 const customerSchema = new mongoose.Schema({
     name: {
@@ -21,13 +21,12 @@ const customerSchema = new mongoose.Schema({
 });
 
 export function validateCustomer(customer) {
-    const schema = {
+    const schema = Joi.object({
         name: Joi.string().min(3).max(50).required(),
         isVip: Joi.boolean().required(),
         phone: Joi.string().min(5).max(50).required()
-    };
-
-    return Joi.validate(customer, schema);
+    });
+    return schema.validate(customer);
 }
 
 export const Customer = mongoose.model('Customer', customerSchema);
