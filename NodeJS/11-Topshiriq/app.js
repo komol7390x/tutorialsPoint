@@ -1,10 +1,11 @@
-const express = require("express");
+import express from 'express'
+import crypto from 'crypto'
+import path from 'path'
+import mongoose from 'mongoose';
+import multer from 'multer';
+import { GridFsStorage } from 'multer-gridfs-storage';
+
 const app = express();
-const crypto = require("crypto");
-const path = require("path");
-const mongoose = require("mongoose");
-const multer = require("multer");
-const GridFsStorage = require("multer-gridfs-storage");
 
 // Middleware
 app.use(express.json());
