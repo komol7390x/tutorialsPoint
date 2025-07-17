@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Joi = require('joi');
+import mongoose from 'mongoose';
+import Joi from 'joi'
 
 export const categorySchema = new mongoose.Schema({
     name: {

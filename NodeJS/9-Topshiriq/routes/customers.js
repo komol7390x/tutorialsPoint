@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import {Customer, validate} from '../models/customer'
+import {Customer, validateCustomer} from '../models/customer.js'
 
 const router = Router();
 
@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { error } = validate(req.body);
+    const { error } = validateCustomer(req.body);
     if (error)
         return res.status(400).send(error.details[0].message);
     let customer = await Customer.save(req.body);
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-    const { error } = validate(req.body);
+    const { error } = validateCustomer(req.body);
     if (error)
         return res.status(400).send(error.details[0].message);
     let customer = await Customer.findByIdAndUpdate(req.params.id,req.body, { new: true});

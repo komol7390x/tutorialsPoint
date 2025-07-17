@@ -1,18 +1,20 @@
 import {Router} from 'express';
 
-import {Course, validate} from '../models/course.js'
+import {Course, validateCourse} from '../models/course.js'
 import { Category } from '../models/category.js';
 
 
 const router = Router();
-
+// --------------------------------------------------------------------------------
+// GET
 router.get('/', async (req, res) => {
   const courses = await Course.find().sort('title');
   res.send(courses);
 });
-
+// --------------------------------------------------------------------------------
+// POST
 router.post('/', async (req, res) => {
-  const { error } = validate(req.body); 
+  const { error } = validateCourse(req.body); 
   if (error) 
     return res.status(400).send(error.details[0].message);
 
@@ -25,9 +27,10 @@ router.post('/', async (req, res) => {
     await Category.save(result);
   res.send(result);
 });
-
+// --------------------------------------------------------------------------------
+// PUT
 router.put('/:id', async (req, res) => {
-  const { error } = validate(req.body); 
+  const { error } = validateCourse(req.body); 
   if (error) return res.status(400).send(error.details[0].message);
   const category = await Category.findById(req.body.categoryId);
   if (!category) 
@@ -37,7 +40,8 @@ router.put('/:id', async (req, res) => {
     return res.status(404).send('Berilgan IDga teng bo\'lgan kurs topilmadi.');
   res.send(course);
 });
-
+// --------------------------------------------------------------------------------
+// DELETE
 router.delete('/:id', async (req, res) => {
   const course = await Course.findByIdAndRemove(req.params.id);
   if (!course) 

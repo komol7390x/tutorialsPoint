@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import {  Category,validate} from '../models/category.js'
+import {  Category,validateCategory} from '../models/category.js'
 const router=Router();
 
 router.get('/', async (_, res) => {
@@ -8,7 +8,7 @@ router.get('/', async (_, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const { error } = validate(req.body);
+  const { error } = validateCategory(req.body);
   if (error)
     return res.status(400).send(error.details[0].message);
 
@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  const { error } = validate(req.body);
+  const { error } = validateCategory(req.body);
   if (error)
     return res.status(400).send(error.details[0].message);
 

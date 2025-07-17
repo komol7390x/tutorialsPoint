@@ -1,6 +1,6 @@
 import Joi from 'joi'
 import mongoose from 'mongoose';
-import categorySchema from './category.js'
+import {categorySchema} from './category.js'
 
 export const Course = mongoose.model('Courses', new mongoose.Schema({
   title: {
