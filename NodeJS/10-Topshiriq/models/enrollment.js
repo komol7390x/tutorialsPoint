@@ -3,26 +3,13 @@ import mongoose from 'mongoose';
 
 export const Enrollment = mongoose.model('Enrollment', new mongoose.Schema({
   customer: {
-    type: new mongoose.Schema({
-      name: {
-        type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 50
-      }
-    }),
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Customer',
     required: true
   },
   course: {
-    type: new mongoose.Schema({
-      title: {
-        type: String,
-        required: true,
-        trim: true,
-        minlength: 5,
-        maxlength: 255
-      }
-    }),
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Course',
     required: true
   },
   dateStart: {
@@ -41,7 +28,6 @@ export function validateEnrollment(enrollment) {
     customerId: Joi.string().required(),
     courseId: Joi.string().required()
   };
-
   return Joi.validate(enrollment, schema);
 }
 

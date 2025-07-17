@@ -36,6 +36,5 @@ export function validateCourse(course) {
     status: Joi.string().required(),
     tags: Joi.array().items(Joi.string())
   };
-
   return Joi.validate(course, schema);
 }
