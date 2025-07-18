@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch ",
+    "start": "node --watch ./src/11-Topshiriq/app.js",
     "dev": "node --watch ./mongodb_darsliklar/dars-3_crud/main-3.js"
   },
   "keywords": [],
@@ -13,7 +13,7 @@
   "description": "",
   "dependencies": {
     "config": "^3.3.12",
-    "dotenv": "^17.2.0",
+    "dotenv": "17.2.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "helmet": "^8.1.0",
