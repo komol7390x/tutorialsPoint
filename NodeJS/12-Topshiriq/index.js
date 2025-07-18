@@ -20,5 +20,5 @@ app.use('/api/users', usersRoute);
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
-  console.log(`${port}chi portni eshitishni boshladim...`);
+  console.log(`${port} chi portni eshitishni boshladim...`);
 });
