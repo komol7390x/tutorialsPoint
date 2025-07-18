@@ -13,14 +13,14 @@
   "description": "",
   "dependencies": {
     "config": "^3.3.12",
-    "dotenv": "17.2.0",
+    "dotenv": "^17.2.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "helmet": "^8.1.0",
     "joi": "^17.13.3",
     "mongoose": "^8.16.3",
     "morgan": "^1.10.0",
-    "multer": "^2.0.1",
+    "multer": "^1.4.5-lts.1",
     "multer-gridfs-storage": "^5.0.2",
     "pug": "^3.0.3",
     "run-rs": "^0.7.7"

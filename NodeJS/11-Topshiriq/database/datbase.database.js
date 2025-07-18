@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
-
-const mongoURI = 'mongodb://localhost/files';
-
+import {configEnv} from '../config/config.js'
+const {mongoURI}=configEnv
 const connectDB = mongoose.createConnection(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

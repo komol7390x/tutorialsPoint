@@ -1,15 +1,9 @@
 import express from 'express';
 import multer from 'multer';
 import { GridFsStorage } from 'multer-gridfs-storage';
-import { mongoURI } from '../db.js';
-import {
-  homePage,
-  uploadFile,
-  getAllFiles,
-  getFileByName,
-  getImage,
-  deleteFile
-} from '../controllers/fileController.js';
+import { configEnv } from '../config/config.js';
+import {homePage,uploadFile,getAllFiles,getFileByName,getImage,deleteFile} from '../controller/app1.controller.js';
+const {mongoURI}=configEnv
 
 const router = express.Router();
 

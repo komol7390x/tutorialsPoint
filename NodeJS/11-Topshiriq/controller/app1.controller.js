@@ -1,4 +1,4 @@
-import { gfs } from '../db.js';
+import { gfs } from '../database/datbase.database.js';
 import crypto from 'crypto';
 import path from 'path';
 
