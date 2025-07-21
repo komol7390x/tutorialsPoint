@@ -1,5 +1,7 @@
 import {User, validateUser} from '../../14-Topshiriq/models/user.js'
 import { Router } from 'express';
+import hashPassword from '../hash.js'
+
 const router=Router();
 import _ from 'lodash'
 
@@ -13,6 +15,7 @@ router.post('/', async (req, res) => {
     return res.status(400).send('Mavjud bo\'lgan foydalanuvchi');
 
   user = new User(_.pick(req.body, ['name', 'email', 'password']));
+  user.password=hashPassword.encrypt(user.password)
   await user.save();
 
   res.send(_.pick(user, ['_id', 'name', 'email']));

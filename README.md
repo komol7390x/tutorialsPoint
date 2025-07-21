@@ -224,3 +224,65 @@ mongoimport --db newData --collection yser  --file data.json  --drop
 ```
 
 ---
+
+# 76-dars Lodash
+## Javascripts da yozilda bu malumotlar bilan tezroq ichlash uchun ishlatiladi
+```
+// Lodash Cheat Sheet – Eng Asosiy 12 Funksiya
+// npm install lodash
+import _ from 'lodash';
+
+/* 1. _.chunk(array, size) – massivni kichik guruhlarga bo‘lish */
+console.log(_.chunk(['a', 'b', 'c', 'd'], 2));
+// ➜ [['a', 'b'], ['c', 'd']]
+
+/* 2. _.uniq(array) – takroriy elementlarni olib tashlash */
+console.log(_.uniq([1, 2, 2, 3]));
+// ➜ [1, 2, 3]
+
+/* 3. _.flatten(array) – massivni 1 daraja tekislaydi */
+console.log(_.flatten([1, [2, [3, 4]]]));
+// ➜ [1, 2, [3, 4]]
+
+/* 4. _.cloneDeep(object) – chuqur nusxa olish */
+const obj = { a: 1, b: { c: 2 } };
+const copy = _.cloneDeep(obj);
+// ➜ copy = { a: 1, b: { c: 2 } }
+
+/* 5. _.merge(obj1, obj2) – obyektlarni chuqur birlashtirish */
+console.log(_.merge({ a: { b: 1 } }, { a: { c: 2 } }));
+// ➜ { a: { b: 1, c: 2 } }
+
+/* 6. _.debounce(func, wait) – kechiktirib ishlatish */
+const debounced = _.debounce(() => console.log('Typed!'), 500);
+debounced();
+
+/* 7. _.throttle(func, wait) – oraliq bilan ishlatish */
+const throttled = _.throttle(() => console.log('Scroll!'), 1000);
+throttled();
+
+/* 8. _.difference(arr1, arr2) – farqni topish */
+console.log(_.difference([1, 2, 3], [2, 3]));
+// ➜ [1]
+
+/* 9. _.intersection(arr1, arr2) – umumiy elementlar */
+console.log(_.intersection([1, 2, 3], [2, 3, 4]));
+// ➜ [2, 3]
+
+/* 10. _.orderBy(array, keys, orders) – obyekt massivni sort qilish */
+const users = [
+  { name: 'Ali', age: 30 },
+  { name: 'Vali', age: 25 }
+];
+console.log(_.orderBy(users, ['age'], ['asc']));
+// ➜ [{ name: 'Vali', age: 25 }, { name: 'Ali', age: 30 }]
+
+/* 11. _.pick(obj, keys) – faqat kerakli property’larni olish */
+console.log(_.pick({ a: 1, b: 2, c: 3 }, ['a', 'c']));
+// ➜ { a: 1, c: 3 }
+
+/* 12. _.isEqual(obj1, obj2) – obyektlar tengligini tekshirish */
+console.log(_.isEqual({ a: 1 }, { a: 1 }));
+// ➜ true
+
+```
