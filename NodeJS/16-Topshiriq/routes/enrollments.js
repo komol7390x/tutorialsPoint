@@ -3,12 +3,13 @@ import { Router } from 'express';
 const router = Router();
 
 // -------------------------------------------------------------------------------
+// GET
 router.get('/', async (req, res) => {
   const enrollments = await Enrollment.find().sort('-dateStart');
   res.send(enrollments);
 });
 // -------------------------------------------------------------------------------
-
+// POST
 router.post('/', async (req, res) => {
   const { error } = validateEnrollment(req.body);
   if (error)
@@ -44,7 +45,7 @@ router.post('/', async (req, res) => {
   res.send(enrollment);
 });
 // -------------------------------------------------------------------------------
-
+// GET BY ID
 router.get('/:id', async (req, res) => {
   const enrollment = await Enrollment.findById(req.params.id);
 

@@ -1,14 +1,14 @@
 import bcrypt from 'bcrypt'
 
 class HashPassword{
-    encrypt=(data)=>{
-        const salt=bcrypt.genSalt()
+    encrypt=async (data)=>{
+        const salt=await bcrypt.genSalt(7)
         const hashPassword=bcrypt.hash(data,salt)
         return hashPassword
     }
 
-    decrypt=(data,password)=>{
-        return bcrypt.compare(data,password)
+    decrypt=async (data,password)=>{
+        return await bcrypt.compare(data,password)
     }
 }
 

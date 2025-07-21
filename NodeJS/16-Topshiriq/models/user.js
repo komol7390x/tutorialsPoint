@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Joi from 'joi'
+import Joi from 'joi';
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -26,12 +26,11 @@ const userSchema = new mongoose.Schema({
 export const User = mongoose.model('User3', userSchema);
 
 export function validateUser(user) {
-  const schema = {
+  const schema = Joi.object({
     name: Joi.string().min(3).max(50).required(),
     email: Joi.string().min(5).max(255).required().email(),
     password: Joi.string().min(5).max(255).required()
-  };
+  });
 
-  return Joi.validate(user, schema);
+  return schema.validate(user);
 }
-

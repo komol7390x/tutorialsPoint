@@ -1,12 +1,14 @@
 import {  Category,validateCategory} from '../models/category.js'
 import { Router } from 'express';
 const router=Router();
-
+// --------------------------------------------------------------------------------
+// GET
 router.get('/', async (_, res) => {
   const categories = await Category.find().sort('name');
   res.send(categories);
 });
-
+// --------------------------------------------------------------------------------
+// POST
 router.post('/', async (req, res) => {
   const { error } = validateCategory(req.body);
   if (error)
@@ -19,7 +21,8 @@ router.post('/', async (req, res) => {
 
   res.status(201).send(category);
 });
-
+// --------------------------------------------------------------------------------
+// GET BY ID
 router.get('/:id', async (req, res) => {
   let category = await Category.findById(req.params.id);
   if (!category)
@@ -27,7 +30,8 @@ router.get('/:id', async (req, res) => {
 
   res.send(category);
 });
-
+// --------------------------------------------------------------------------------
+// UPDATE
 router.put('/:id', async (req, res) => {
   const { error } = validateCategory(req.body);
   if (error)
@@ -42,7 +46,8 @@ router.put('/:id', async (req, res) => {
 
   res.send(category);
 });
-
+// --------------------------------------------------------------------------------
+// DELETE
 router.delete('/:id', async (req, res) => {
   let category = await Category.findByIdAndRemove(req.params.id);
   if (!category)

@@ -1,12 +1,13 @@
 import express from 'express';
 
-import categoriesRoute from '../13-Topshiriq/routes/categories.js'
-import customersRoute from '../13-Topshiriq/routes/customers.js'
-import coursesRoute from '../13-Topshiriq/routes/courses.js'
-import entrollmentsRoute from '../13-Topshiriq/routes/enrollments.js'
-import usersRoute from '../13-Topshiriq/routes/users.js'
+import categoriesRoute from './routes/categories.js'
+import customersRoute from './routes/customers.js'
+import coursesRoute from './routes/courses.js'
+import entrollmentsRoute from './routes/enrollments.js'
+import usersRoute from './routes/users.js'
 import authRoute from './routes/auth.js'
-import { connectDB } from '../13-Topshiriq/configs/database.js';
+
+import { connectDB } from './configs/database.js';
 
 await connectDB()
 const app = express();

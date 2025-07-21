@@ -1,7 +1,8 @@
-import { User } from '../models/user.js'
-import { Router } from 'express';
 import hashPassword from '../hash.js'
 import Joi from 'joi';
+
+import { User } from '../models/user.js'
+import { Router } from 'express';
 
 const router = Router();
 import _ from 'lodash'
@@ -16,8 +17,9 @@ router.post('/', async (req, res) => {
     return res.status(400).send('Email yoki parol noto\'gri');
   const isValid = hashPassword.decrypt(req.body.password,user.password)
   if(!isValid){
-    res.send(true)
+    res.status(400).send('Email yoki parol not\'o\'gri')
   }
+
 });
 
 function validate(users) {
