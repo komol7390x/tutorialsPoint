@@ -1,9 +1,10 @@
 import { User } from '../models/user.js'
 import { Router } from 'express';
 
+
 import hashPassword from '../hash.js'
 import Joi from 'joi';
-import jwt from 'jsonwebtoken'
+
 
 const router = Router();
 import _ from 'lodash'
@@ -22,8 +23,9 @@ router.post('/', async (req, res) => {
   if (!isValid) {
     res.send('Email yoki parol noto\'gri')
   }
-  const token=jwt.sign({_id:user._id},'8uMeningMa4fiyT0kenim');
-  res.header('x-auth-token',token).send(true)
+  
+  const userToken=User.getUserToken(user._id)  
+  res.header('x-auth-token',userToken).send(true)
 });
 
 function validate(users) {

@@ -8,7 +8,7 @@ import usersRoute from './routes/users.js'
 import authRoute from './routes/auth.js'
 
 import { connectDB } from './configs/database.js';
-
+import {configFile} from './configs/env.config.js'
 await connectDB()
 const app = express();
 
@@ -20,7 +20,7 @@ app.use('/api/enrollments', entrollmentsRoute);
 app.use('/api/users', usersRoute);
 app.use('/api/auth',authRoute)
 
-const port = process.env.PORT || 5000;
+const port = configFile.PORT|| 5000;
 
 app.listen(port, () => {
   console.log(`${port} chi portni eshitishni boshladim...`);

@@ -1,13 +1,11 @@
 import {join} from 'path'
-import {config} from 'dotenv'
+import {configFile} from './env.config.js'
 import mongoose from 'mongoose'
 
-const pathEnv=join(process.cwd(),'../../.env')
-config({path:pathEnv})
 export const connectDB = async () => {
     try {
         console.clear()
-        await mongoose.connect(process.env.MONGODB_URI)
+        await mongoose.connect(configFile.mongo_url)
         console.log('Server is connect to database');
     } catch (error) {
         console.log(`error to connect database`, error.message);
