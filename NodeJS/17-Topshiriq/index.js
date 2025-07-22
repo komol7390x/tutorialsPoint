@@ -8,7 +8,8 @@ import usersRoute from './routes/users.js'
 import authRoute from './routes/auth.js'
 
 import { connectDB } from './configs/database.js';
-import {configFile} from './configs/env.config.js'
+import {configFile} from './configs/env.config.js';
+
 await connectDB()
 const app = express();
 

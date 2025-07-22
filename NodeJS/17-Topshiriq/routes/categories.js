@@ -30,11 +30,15 @@ router.post('/',checkAuth ,async (req, res) => {
 // --------------------------------------------------------------------------------
 // GET BY ID
 router.get('/:id', async (req, res) => {
-  let category = await Category.findById(req.params.id);
-  if (!category)
-    return res.status(404).send('Berilgan IDga teng bo\'lgan toifa topilmadi');
+  try {
+    const category = await Category.findById(req.params.id);
+    if (!category)
+      return res.status(404).send('Berilgan IDga teng bo\'lgan toifa topilmadi');
 
-  res.send(category);
+    res.send(category);
+  } catch (err) {
+    res.status(400).send('Yaroqsiz ID format');
+  }
 });
 // --------------------------------------------------------------------------------
 // UPDATE
