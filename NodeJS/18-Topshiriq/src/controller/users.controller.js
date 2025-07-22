@@ -17,7 +17,6 @@ class UserController extends BaseController {
         statusCode: 400,
         message: error.details[0].message
       });
-
     const user = await User.findOne({ email: req.body.email });
     if (user) {
       return res.status(400).json({

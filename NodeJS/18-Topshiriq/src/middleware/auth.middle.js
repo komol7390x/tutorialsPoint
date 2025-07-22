@@ -1,7 +1,7 @@
 import { configFile } from '../configs/env.config.js'
 import jwt from 'jsonwebtoken';
 
-export const checkAuth = (req, res, next) => {
+const checkAuth = (req, res, next) => {
     try {
         const token = req.header('x-auth-token')
         console.log(token);        
@@ -18,3 +18,5 @@ export const checkAuth = (req, res, next) => {
         })
     }
 }
+
+export default checkAuth

@@ -1,2 +1,2 @@
-# Token berish va tekshirish
-# validatsiyani middleware orqali qilish
+# Token yozish
+# validatsiyani togirlash
