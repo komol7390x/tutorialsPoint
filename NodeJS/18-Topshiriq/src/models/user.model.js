@@ -1,3 +1,4 @@
+import { required } from 'joi';
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
@@ -19,7 +20,8 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 5,
     maxlength: 1024
-  }
+  },
+  isAdmin:{type:Boolean,default:false}
 });
 
 export const User = mongoose.model('user', userSchema);

@@ -10,7 +10,8 @@ class ValidateUser {
     const schema = Joi.object({
       name: Joi.string().min(3).max(50).required(),
       email: Joi.string().required().pattern(regEmail),
-      password: Joi.string().required().pattern(regPass)
+      password: Joi.string().required().pattern(regPass),
+      isAdmin:Joi.boolean().required()
     });
 
     return schema.validate(user);
@@ -21,7 +22,8 @@ class ValidateUser {
      const schema = Joi.object({
       name: Joi.string().min(3).max(50).optional(),
       email: Joi.string().optional().pattern(regEmail),
-      password: Joi.string().optional().pattern(regPass)
+      password: Joi.string().optional().pattern(regPass),
+      isAdmin:Joi.boolean().optional()
     });
 
     return schema.validate(user);
