@@ -1,0 +1,2 @@
+# Token yozish
+# validatsiyani togirlash
