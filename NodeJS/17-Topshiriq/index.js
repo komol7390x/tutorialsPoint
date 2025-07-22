@@ -20,8 +20,8 @@ app.use('/api/enrollments', entrollmentsRoute);
 app.use('/api/users', usersRoute);
 app.use('/api/auth',authRoute)
 
-const port = configFile.PORT|| 5000;
+const port = +configFile.PORT|| 5000;
 
 app.listen(port, () => {
-  console.log(`${port} chi portni eshitishni boshladim...`);
+  console.log(port,`chi portni eshitishni boshladim...`);
 });
