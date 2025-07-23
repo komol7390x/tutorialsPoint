@@ -2,8 +2,7 @@ import bcrypt from 'bcrypt'
 
 class HashPassword{
     encrypt=async (data)=>{
-        const salt=await bcrypt.genSalt(7)
-        const hashPassword=bcrypt.hash(data,salt)
+        const hashPassword=bcrypt.hash(data,7)
         return hashPassword
     }
 

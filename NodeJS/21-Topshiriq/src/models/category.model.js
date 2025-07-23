@@ -8,6 +8,6 @@ export const categorySchema = new mongoose.Schema({
         maxlength: 50,
         unique:true
     }
-});
+},{timestamps:true,versionKey:false});
 
 export const Category = mongoose.model('category', categorySchema);

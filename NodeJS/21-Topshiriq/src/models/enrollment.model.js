@@ -20,7 +20,7 @@ const enrollmentSchema=new mongoose.Schema({
     type: Number,
     min: 0
   }
-})
+},{timestamps:true,versionKey:false})
 
 export const Enrollment = mongoose.model('enrollment', enrollmentSchema);
 

@@ -25,7 +25,7 @@ const courseSchema=new mongoose.Schema({
     enum: ['Active', 'Inactive'],
     required: true
   }
-})
+},{timestamps:true,versionKey:false})
 
 
 export const Course = mongoose.model('courses', courseSchema);
