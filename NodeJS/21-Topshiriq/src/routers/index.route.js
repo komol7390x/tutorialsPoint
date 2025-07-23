@@ -7,7 +7,8 @@ import coursesRoute from './courses.route.js'
 import enrollmentsRoute from './enrollments.route.js'
 import usersRoute from './users.route.js'
 import { winstonError } from '../middleware/error.js';
-winstonError()
+
+winstonFunc()
 const router = Router();
 
 router.use('/categories', categoriesRoute);
