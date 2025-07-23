@@ -1,4 +1,4 @@
-module.exports.fizzBuzz = function (input) {
+const fizzBuzz = function (input) {
     if (typeof input !== 'number')
         throw new Error('input son bo\'lishi kerak.');
 
@@ -13,3 +13,5 @@ module.exports.fizzBuzz = function (input) {
 
     return input;
 }
+
+export default fizzBuzz

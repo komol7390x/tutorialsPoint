@@ -1,5 +1,5 @@
-const myLib = require('../mylib');
-const db = require('../db');
+import myLib from '../mylib.js'
+import db from '../db.js'
 
 describe('absolute', () => {
     it('should return a positive number if input is positive', () => {
