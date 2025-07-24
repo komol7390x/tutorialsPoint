@@ -14,3 +14,6 @@ app.use('/api',router)
 const PORT = +configFile.PORT|| 5000;
 
 app.listen(PORT, () => console.log('Server is runing PORT: ',PORT));
+
+
+export default app

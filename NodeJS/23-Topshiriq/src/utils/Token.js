@@ -1,13 +1,12 @@
 import jwt from 'jsonwebtoken'
 import {configFile} from '../config/env.config.js'
 class Token{
-
     async AccessToken(payload) {
         return jwt.sign(payload, configFile.TOKEN.ACCESS_TOKEN_KEY, {
             expiresIn: configFile.TOKEN.ACCESS_TOKEN_TIME
         });
     }
-
+    
     async writeToCookie(res, key, value, expireDay) {
         res.cookie(key, value, {
             httpOnly: true,

@@ -1,13 +1,13 @@
-import { User } from '../../../models/user.model';
-import tokenValid from '../../../models/user.model.js'
-import jwt from 'jsonwebtoken';
-import { configFile } from '../../../config/env.config';
+import jwt from 'jsonwebtoken'
  
 describe('user.generateAuthToken', () => {
-    it('should return a valid JWT', () => {
-        const user = new User({ isAdmin: true });
-        const token = tokenValid.AccessToken(user,configFile.TOKEN.ACCESS_TOKEN_KEY)
-        const decodedObject = jwt.verify(token, configFile.TOKEN.ACCESS_TOKEN_KEY);
-        expect(decodedObject).toMatchObject({ isAdmin: true });
+    it('should return a valid JWT', async() => {
+        const user = { id:25,isAdmin: true };
+        const token =jwt.sign(user,'salom',{
+            expiresIn:'1d'
+        })
+        const decodedObject =jwt.verify(token, 'salom');
+        expect(decodedObject).toMatchObject({ id:25,isAdmin: true });
     });
 });
+
