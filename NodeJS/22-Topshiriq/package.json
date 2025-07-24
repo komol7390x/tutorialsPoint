@@ -1,15 +1,16 @@
 {
-  "name": "22-topshiriq",
+  "name": "testing",
   "version": "1.0.0",
   "description": "",
+  "main": "mylib.js",
   "type": "module",
   "scripts": {
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Farkhod Dadajanov",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^30.0.5"
+    "jest": "^25.5.4"
   }
 }
