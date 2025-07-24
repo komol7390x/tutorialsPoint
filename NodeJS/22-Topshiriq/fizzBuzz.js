@@ -1,4 +1,4 @@
-const fizzBuzz = function (input) {
+export const fizzBuzz = function (input) {
     if (typeof input !== 'number')
         throw new Error('input son bo\'lishi kerak.');
 
@@ -14,4 +14,3 @@ const fizzBuzz = function (input) {
     return input;
 }
 
-export default fizzBuzz
