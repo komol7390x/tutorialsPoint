@@ -21,9 +21,9 @@ describe('absolute', () => {
 
 describe('salam', () => {
     it('should return the greeting message', () => {
-        const result = myLib.salam('Farhod');
-        //expect(result).toContain('Farhod');
-        expect(result).toMatch(/Farhod/);
+        const result = myLib.salam('Komol');
+        //expect(result).toContain('Komol');
+        expect(result).toMatch(/Komol/);
     });
 });
 
