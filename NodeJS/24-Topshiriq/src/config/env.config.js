@@ -1,7 +1,5 @@
 import { config } from "dotenv";
-import {join} from 'path'
-const path=join(process.cwd(),'../../.env')
-config({path})
+config()
 
 export const configFile = {
     PORT: process.env.PORT,
@@ -11,5 +9,3 @@ export const configFile = {
         ACCESS_TOKEN_TIME: String(process.env.ACCESS_TOKEN_TIME)
     }
 }
-
-console.log(configFile);
