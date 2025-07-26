@@ -1,5 +1,5 @@
-const myLib = require('../mylib');
-const db = require('../db');
+import myLib from '../mylib.js'
+import db from '../db.js'
 
 describe('absolute', () => {
     it('should return a positive number if input is positive', () => {
@@ -21,9 +21,9 @@ describe('absolute', () => {
 
 describe('salam', () => {
     it('should return the greeting message', () => {
-        const result = myLib.salam('Farhod');
-        //expect(result).toContain('Farhod');
-        expect(result).toMatch(/Farhod/);
+        const result = myLib.salam('Komol');
+        //expect(result).toContain('Komol');
+        expect(result).toMatch(/Komol/);
     });
 });
 

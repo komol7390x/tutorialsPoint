@@ -1,4 +1,4 @@
-const myLib = require('../fizzBuzz');
+import myLib from '../fizzBuzz.js'
 
 describe('fizzBuzz', () => {
     it('should throw an error if input is not a number', () => {

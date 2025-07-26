@@ -1,31 +1,31 @@
 const db = require('./db');
 
 // Sonlarni test qilish - mutlaq qiymat
-module.exports.absolute = function (number) {
+export const absolute = function (number) {
   return (number >= 0) ? number : -number;
 }
 
 
 // Matnlarni test qilish
-module.exports.salam = function (name) {
+export const salam = function (name) {
   return 'Assalomu alaykum, ' + name + '!';
 }
 
 
 // Qatorlarni test qilish
-module.exports.getCurrencies = function () {
+export const getCurrencies = function () {
   return ['UZS', 'MYR', 'TRY'];
 }
 
 
 // Obyektlarni test qilish
-module.exports.getProduct = function (productId) {
+export const getProduct = function (productId) {
   return { id: productId, title: 'banana', price: 2 };
 }
 
 
 // Xatolarni test qilish
-module.exports.registeruser = function (userName) {
+export const registeruser = function (userName) {
   if (!userName) throw new Error('Username is required');
 
   return { id: 111, userName: userName }
@@ -33,7 +33,7 @@ module.exports.registeruser = function (userName) {
 
 
 // Mock funtksyalar
-module.exports.applyDiscount = function (order) {
+export const applyDiscount = function (order) {
   const customer = db.getCustomer(order.customerId);
   if (customer.points > 100)
     order.totalPrice = order.price - (order.price * 0.1);
