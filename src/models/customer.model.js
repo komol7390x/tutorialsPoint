@@ -17,7 +17,8 @@ const customerSchema = new mongoose.Schema({
         minlength: 5,
         maxlength: 50,
         unique:true
-    }
+    },
+    role:{type:String,enum:['Customer'],default:'Customer'}
 },{timestamps:true,versionKey:false});
 
 

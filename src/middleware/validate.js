@@ -1,4 +1,3 @@
-
 const checkValidate =(schema) => {
     return async(req, res, next) => {
         try {

@@ -36,7 +36,7 @@ class UserController extends BaseController {
   }
   // --------------------------------------------------------------------------------------------
   // authorization get Token
-  authUser = async (req, res) => {
+  signin = async (req, res) => {
     try {
       
       const user = await User.findOne({ email: req.body.email });

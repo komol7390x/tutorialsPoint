@@ -8,7 +8,6 @@ export class BaseController {
     // CREATE
     create = async (req, res) => {
         try {
-            console.log(">> ", req.body)
             const data =await this.model.create(req.body)
             return res.status(201).json({
                 statusCode: 201,
