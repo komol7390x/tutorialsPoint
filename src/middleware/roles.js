@@ -2,6 +2,8 @@ export const RolesGuard = (...roles) => {
     return async (req, res, next) => {
         try {
             const role = await req.user?.role
+            console.log(role);
+            
             if (roles.includes(role)&& role) {
                 return next()
             }

@@ -10,12 +10,12 @@ class UserController extends BaseController {
   // --------------------------------------------------------------------------------------------
   // USER create
   createUser = async (req, res) => {
-    try {
+    try {      
       const user = await User.findOne({ email: req.body.email });
       if (user) {
         return res.status(400).json({
           statusCode: 400,
-          message: `Already added this user: ${user}`
+          message: `Already added this user: ${req.body.email}`
         });
       }      
       const hashPass = await hashPassword.encrypt(req.body.password)
@@ -38,7 +38,6 @@ class UserController extends BaseController {
   // authorization get Token
   signin = async (req, res) => {
     try {
-      
       const user = await User.findOne({ email: req.body.email });
       if (!user) {
         return res.status(404).json({
@@ -56,7 +55,8 @@ class UserController extends BaseController {
       const payload = {
         id: user.id,
         name: user.name,
-        isAdmin: user.isAdmin
+        isAdmin: user.isAdmin,
+        role:user.role
       }
       const result = await token.AccessToken(payload);
       return res.status(200).json({

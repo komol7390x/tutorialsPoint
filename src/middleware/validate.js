@@ -1,8 +1,8 @@
 const checkValidate =(schema) => {
     return async(req, res, next) => {
-        try {
-            const schemaValid=schema();
-            const {error}=schemaValid.validate(req.body);            
+        try {            
+            const schemaValid=schema();            
+            const {error}=schemaValid.validate(req.body);                        
             if (error) {
                 return res.status(422).json({
                     statusCode: 422,

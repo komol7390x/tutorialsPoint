@@ -1,6 +1,6 @@
 import controller from '../controller/enrollments.controller.js'
 import validate from '../middleware/validate.js'
-import schema from '../validator/customers.validate.js'
+import customerValidate from '../validator/customers.validate.js'
 import {AuthGuard} from '../middleware/auth.js'
 import { Router } from 'express'
 import { RolesGuard } from '../middleware/roles.js'
@@ -8,10 +8,10 @@ import { RolesGuard } from '../middleware/roles.js'
 const router = Router()
 
 router
-    .post('/',AuthGuard,RolesGuard('Admin'),validate(schema.create),controller.create)
+    .post('/',AuthGuard,RolesGuard('Admin'),validate(customerValidate.create),controller.create)
     .get('/',AuthGuard,RolesGuard('Admin'), controller.getAll)
     .get('/:id',AuthGuard,controller.getByID)
-    .patch('/:id',AuthGuard,RolesGuard('Admin'),validate(schema.update),controller.update)
+    .patch('/:id',AuthGuard,RolesGuard('Admin'),validate(customerValidate.update),controller.update)
     .delete('/:id',AuthGuard,RolesGuard('Admin'),controller.delete)
 
 export default router
