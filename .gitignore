@@ -1,2 +1,3 @@
-node_modules/
-NodeJS/23-Topshiriq/coverage/
+/node_modules
+logs/
+coverage/
