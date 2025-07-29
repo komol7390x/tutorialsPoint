@@ -3,7 +3,7 @@ import validate from '../middleware/auth.js'
 import schema from '../validator/category.validate.js'
 import { Router } from 'express'
 
-const router=Router()
+const router = Router()
 
 router
     .post('/',validate(schema.create),controller.create)
