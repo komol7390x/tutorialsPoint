@@ -1,4 +1,5 @@
 import Joi from "joi";
+
 class ValidateCategory {
     create(category) {
         const schema = Joi.object({

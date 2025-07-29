@@ -11,7 +11,8 @@ class Validate {
       name: Joi.string().min(3).max(50).required(),
       email: Joi.string().required().pattern(regEmail),
       password: Joi.string().required().pattern(regPass),
-      isAdmin:Joi.boolean().required()
+      isAdmin:Joi.boolean().required(),
+      role:Joi.string().valid('Admin')
     });
   }
 // -----------------------------------------------------

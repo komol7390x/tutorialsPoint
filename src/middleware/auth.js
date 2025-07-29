@@ -1,25 +1,27 @@
-import Joi from "joi";
+import { configFile } from '../config/env.config.js'
+import token from '../utils/Token.js'
 
-const checkValidate =(schema) => {
-    return async(req, res, next) => {
-        try {
-            const schemaValid=schema();
-            const {error}=schemaValid.validate(req.body);            
-            if (error) {
-                return res.status(422).json({
-                    statusCode: 422,
-                    message: error?.details[0]?.message ?? 'Error input validation'
-                });
-            }            
-            next()
-        } catch (error) {
-            return res.status(500).json({
-                statusCode: 500,
-                message: error.message || 'Invalid server error'
+export const AuthGuard = async (req, res, next) => {
+    try {
+        const auth = req.headers?.authorization;
+        if (!auth) {
+            return res.status(400).json({
+                statusCode:400,
+                message:'Authorizathion Error'
             })
         }
+        const bearer = auth.split(' ')[0];
+        const authToken = auth.split(' ')[1]
+        if (bearer !== 'Bearer' || !authToken) {
+            return res.status(400).json({
+                statusCode:400,
+                message:'Authorizathion Error'
+            })
+        }
+        const user = await token.verifyToken(authToken, configFile.TOKEN.ACCESS_TOKEN_KEY)
+        req.user = user;
+        next()
+    } catch (error) {
+        next(error)
     }
-
 }
-
-export default checkValidate
