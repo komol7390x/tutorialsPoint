@@ -1,5 +1,4 @@
-import mongoose from 'mongoose';
-import {categorySchema} from './category.model.js'
+import mongoose, { Schema } from 'mongoose';
 
 const courseSchema=new mongoose.Schema({
   title: {
@@ -9,9 +8,10 @@ const courseSchema=new mongoose.Schema({
     minlength: 5,
     maxlength: 255
   },
-  category: { 
-    type: categorySchema,  
-    required: true
+  categoryID: { 
+    type: Schema.Types.ObjectId,  
+    ref:'categories',
+    required:true
   },
   trainer: {
     type: String,

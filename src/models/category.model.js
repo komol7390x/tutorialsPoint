@@ -5,9 +5,7 @@ export const categorySchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: 3,
-        maxlength: 50,
-        unique:true
-    }
+        maxlength: 50    }
 },{timestamps:true,versionKey:false});
 
 export const Category = mongoose.model('category', categorySchema);

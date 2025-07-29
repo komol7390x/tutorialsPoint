@@ -1,19 +1,18 @@
 import mongoose from 'mongoose';
 
 const enrollmentSchema=new mongoose.Schema({
-  customer: {
+  customerID: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'customer',
+    ref: 'customers',
     required: true
   },
-  course: {
+  courseID: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'course',
+    ref: 'courses',
     required: true
   },
   dateStart: {
     type: Date,
-    required: true,
     default: Date.now
   },
   courseFee: {

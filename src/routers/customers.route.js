@@ -1,4 +1,4 @@
-import controller from '../controller/enrollments.controller.js'
+import controller from '../controller/customers.controller.js'
 import validate from '../middleware/validate.js'
 import customerValidate from '../validator/customers.validate.js'
 import {AuthGuard} from '../middleware/auth.js'

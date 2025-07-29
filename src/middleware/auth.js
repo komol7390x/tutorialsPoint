@@ -9,7 +9,7 @@ export const AuthGuard = async (req, res, next) => {
                 statusCode:400,
                 message:'Authorizathion Error'
             })
-        }
+        }        
         const bearer = auth.split(' ')[0];
         const authToken = auth.split(' ')[1]
         if (bearer !== 'Bearer' || !authToken) {

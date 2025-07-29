@@ -1,14 +1,14 @@
 const checkValidate =(schema) => {
     return async(req, res, next) => {
-        try {            
+        try {                        
             const schemaValid=schema();            
-            const {error}=schemaValid.validate(req.body);                        
+            const {error}=schemaValid.validate(req.body,{ abortEarly: false });                        
             if (error) {
                 return res.status(422).json({
                     statusCode: 422,
                     message: error?.details[0]?.message ?? 'Error input validation'
                 });
-            }            
+            }                         
             next()
         } catch (error) {
             return res.status(500).json({

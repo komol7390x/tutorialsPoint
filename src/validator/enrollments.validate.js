@@ -1,20 +1,20 @@
 import Joi from "joi";
 
 class ValidateEnrollment {
-  create(enrollment) {
+  create() {
     const schema = Joi.object({
-      customerId: Joi.string().required(),
-      courseId: Joi.string().required()
+      customerID: Joi.string().required(),
+      courseID: Joi.string().required()
     });
-    return schema.validate(enrollment);
+    return schema
   }
 
-  update(enrollment){
+  update(){
     const schema = Joi.object({
-      customerId: Joi.string().optional(),
-      courseId: Joi.string().optional()
+      customerID: Joi.string().optional(),
+      courseID: Joi.string().optional()
     });
-    return schema.validate(enrollment);
+    return schema;
   }
 }
 

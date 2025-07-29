@@ -1,4 +1,4 @@
-import controller from '../controller/categories.controller.js'
+import controller from '../controller/course.controller.js'
 import validate from '../middleware/validate.js'
 import schema from '../validator/course.validate.js'
 import {AuthGuard} from '../middleware/auth.js'

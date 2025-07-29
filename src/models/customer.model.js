@@ -22,4 +22,4 @@ const customerSchema = new mongoose.Schema({
 },{timestamps:true,versionKey:false});
 
 
-export const Customer = mongoose.model('customer', customerSchema);
+export const Customer = mongoose.model('customers', customerSchema);
