@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { Role } from '../const/Role';
 
 const customerSchema = new mongoose.Schema({
     name: {
@@ -16,10 +17,10 @@ const customerSchema = new mongoose.Schema({
         required: true,
         minlength: 5,
         maxlength: 50,
-        unique:true
+        unique: true
     },
-    role:{type:String,enum:['Customer'],default:'Customer'}
-},{timestamps:true,versionKey:false});
+    role: { type: String, enum: [Role.CUSTOMER], default: Role.CUSTOMER }
+}, { timestamps: true, versionKey: false });
 
 
 export const Customer = mongoose.model('customers', customerSchema);

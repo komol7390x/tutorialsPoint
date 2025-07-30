@@ -12,7 +12,8 @@
   "scripts": {
     "test": "jest --watchAll --coverage",
     "start": "node --watch src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "superadmin":"node src/helper/superadmin.js"
   },
   "engines": {
     "node": "18.19.1"
