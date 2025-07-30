@@ -1,8 +1,9 @@
+import { Router } from 'express'
+
 import controller from '../controller/customers.controller.js'
 import validate from '../middleware/validate.js'
 import customerValidate from '../validator/customers.validate.js'
 import { AuthGuard } from '../middleware/auth.js'
-import { Router } from 'express'
 import { RolesGuard } from '../middleware/roles.js'
 import { Role } from '../const/Role.js'
 

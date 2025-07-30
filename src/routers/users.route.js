@@ -12,7 +12,7 @@ router
     .post('/signin', validate(userValidate.signIn), controller.signin)
     .get('/', AuthGuard, RolesGuard(Role.SUPERADMIN), controller.getAll)
     .get('/:id', AuthGuard, RolesGuard(Role.SUPERADMIN, Role.ADMIN), controller.getByID)
-    .patch('/:id', AuthGuard, olesGuard(Role.SUPERADMIN, Role.ADMIN), validate(userValidate.update), controller.update)
-    .delete('/:id', AuthGuard, olesGuard(Role.SUPERADMIN), controller.delete)
+    .patch('/:id', AuthGuard, RolesGuard(Role.SUPERADMIN, Role.ADMIN), validate(userValidate.update), controller.update)
+    .delete('/:id', AuthGuard, RolesGuard(Role.SUPERADMIN), controller.delete)
 
 export default router
