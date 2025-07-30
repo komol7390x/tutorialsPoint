@@ -1,0 +1,881 @@
+{
+	"info": {
+		"_postman_id": "f79df6c9-e07c-4177-86d7-a5d32572774e",
+		"name": "online_course",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46127988"
+	},
+	"item": [
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OGE1ZDFhMDE4YWJkNDBhNTU3YTM5NCIsIm5hbWUiOiJLb21vbGJlayBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzODk4MjkwLCJleHAiOjE3NTM5ODQ2OTB9.4sHTyboHwW6xmwf8NPXHRJ7dadUnymOCwQigSw3SLxo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Code\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/api/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OGE1ZDFhMDE4YWJkNDBhNTU3YTM5NCIsIm5hbWUiOiJLb21vbGJlayBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzODk4MjkwLCJleHAiOjE3NTM5ODQ2OTB9.4sHTyboHwW6xmwf8NPXHRJ7dadUnymOCwQigSw3SLxo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/categories/6888b8695970ebd00ac2461f",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"categories",
+								"6888b8695970ebd00ac2461f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Smm2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/api/categories/6888b8695970ebd00ac2461f",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"categories",
+								"6888b8695970ebd00ac2461f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/categories/6888b8695970ebd00ac2461f",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"categories",
+								"6888b8695970ebd00ac2461f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "course",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"js da\",\n  \"categoryID\": \"6888bda14936f8fc51a1ae77\",\n  \"trainer\": \"Komolbek Xudoyberganov\",\n  \"tags\": [\"python\", \"backend\", \"web development\"],\n  \"status\": \"Active\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/api/courses",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/courses",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/courses/6888bdb84936f8fc51a1ae7a",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"courses",
+								"6888bdb84936f8fc51a1ae7a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Dizayn Photoshop Course\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/api/courses/6888bdb84936f8fc51a1ae7a",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"courses",
+								"6888bdb84936f8fc51a1ae7a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/courses/6888bdb84936f8fc51a1ae7a",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"courses",
+								"6888bdb84936f8fc51a1ae7a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customers",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Sherzod Xudoyberganov\",\n  \"isVip\": true,\n  \"phone\": \"+998901234568\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/api/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/customers/6888be9b9fc24bef7033d984",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"customers",
+								"6888be9b9fc24bef7033d984"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bekzod Xudoyberganov\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/api/customers/6888be9b9fc24bef7033d984",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"customers",
+								"6888be9b9fc24bef7033d984"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/customers/6888be9b9fc24bef7033d984",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"customers",
+								"6888be9b9fc24bef7033d984"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "enrollment",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerID\":\"6888be9b9fc24bef7033d984\",\n    \"courseID\":\"6888bdc04936f8fc51a1ae7c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/api/enrollments",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"enrollments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/enrollments",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"enrollments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/enrollments/6888c001bc52e07a3bca9084",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"enrollments",
+								"6888c001bc52e07a3bca9084"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJCZXJkaSBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzkwMTIxLCJleHAiOjE3NTM4NzY1MjF9.lC-cQIavDJqjrJ9_DoJTTMzdbgRV7AMwk-s74tKI0kw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerID\":\"6888be9b9fc24bef7033d984\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/api/enrollments/6888c001bc52e07a3bca9084",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"enrollments",
+								"6888c001bc52e07a3bca9084"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/enrollments/6888c001bc52e07a3bca9084",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"enrollments",
+								"6888c001bc52e07a3bca9084"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Komolbek Xudoyberganov\",\n    \"email\": \"komol@exampl1e.com\",\n    \"password\": \"project18\",\n    \"isAdmin\": true\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/api/users/create",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"komol@example.com\",\n    \"password\": \"project18\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/api/users/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"users",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJLb21vbGJlayBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzg5NjA1LCJleHAiOjE3NTM4NzYwMDV9.IJNSB5adXVBqZXvwEzdZ0xE09dVSH8YHej22kQnk-Ro",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJLb21vbGJlayBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzg5NjA1LCJleHAiOjE3NTM4NzYwMDV9.IJNSB5adXVBqZXvwEzdZ0xE09dVSH8YHej22kQnk-Ro",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/users/6888b3776aaa8934b7477325",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"users",
+								"6888b3776aaa8934b7477325"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODhiMzc3NmFhYTg5MzRiNzQ3NzMyNSIsIm5hbWUiOiJLb21vbGJlayBYdWRveWJlcmdhbm92IiwiaXNBZG1pbiI6dHJ1ZSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzUzNzg5NjA1LCJleHAiOjE3NTM4NzYwMDV9.IJNSB5adXVBqZXvwEzdZ0xE09dVSH8YHej22kQnk-Ro",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Berdi Xudoyberganov\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/api/users/6888b3776aaa8934b7477325",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"users",
+								"6888b3776aaa8934b7477325"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "localhost:3004/api/users/6888b3776aaa8934b7477325",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/api/users/6888b3776aaa8934b7477325",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"api",
+								"users",
+								"6888b3776aaa8934b7477325"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

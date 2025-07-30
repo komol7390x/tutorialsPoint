@@ -31,7 +31,8 @@
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.16.4",
-    "winston": "^3.17.0"
+    "winston": "^3.17.0",
+    "winston-mongodb": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",
