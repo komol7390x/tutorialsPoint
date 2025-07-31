@@ -1,5 +1,5 @@
-// import 'express-async-errors';
 import { Router } from 'express'
+
 import categoriesRoute from './categories.route.js'
 import customersRoute from './customers.route.js'
 import coursesRoute from './courses.route.js'
