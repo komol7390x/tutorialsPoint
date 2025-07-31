@@ -4,7 +4,6 @@ import router from './routers/index.route.js'
 import { connectDB } from './database/database.js';
 import { configFile } from './config/env.config.js';
 import production from './start/production.js'
-import {globalErrorHandle} from './error/global-error-handle.js'
 const app = express();
 
 (async()=>{
@@ -14,7 +13,6 @@ production(app)
 
 app.use(express.json());
 app.use('/api', router)
-app.use(globalErrorHandle)
 
 const PORT = +configFile.PORT || 5000;
 
