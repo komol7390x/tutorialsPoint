@@ -1,109 +1,75 @@
 import { isValidObjectId } from "mongoose";
-
+import { successRes } from '../utils/success-response.js'
+import {AppError} from '../error/AppError.js'
 export class BaseController {
     constructor(model) {
         this.model = model
     }
     // -------------------------------------------------------------------
     // CREATE
-    create = async (req, res) => {
+    create = async (req, res, next) => {
         try {
-            const data =await this.model.create(req.body)
-            return res.status(201).json({
-                statusCode: 201,
-                message: 'success',
-                data
-            })
+            const data = await this.model.create(req.body)
+            successRes(res, data, 201)
         } catch (error) {
-            return res.status(500).json({
-                statusCode: 500,
-                message: error.message || 'Invalid server error'
-            })
+            next(error)
         }
     }
     // -------------------------------------------------------------------
     // GET_ALL
-    getAll = async (_, res) => {
+    getAll = async (_, res, next) => {
         try {
             const data = await this.model.find()
-            return res.status(200).json({
-                statusCode: 200,
-                message: 'success',
-                data
-            })
+            successRes(res, data)
         } catch (error) {
-            return res.status(500).json({
-                statusCode: 500,
-                message: error.message || 'Invalid server error'
-            })
+           next(error)
         }
     }
     // -------------------------------------------------------------------
     // GET_BY_ID
-    getByID = async (req, res) => {
+    getByID = async (req, res, next) => {
         try {
             const id = req.params.id
             const checkUser = await this.checkByID(id, res);
-            return res.status(200).json({
-                statusCode: 200,
-                message: 'success',
-                data: checkUser
-            })
+           successRes(res,checkUser)
         } catch (error) {
-            return res.status(500).json({
-                statusCode: 500,
-                message: error.message || 'Invalid server error'
-            })
+           next(error)
         }
     }
     // -------------------------------------------------------------------
     // UPDATE
-    update = async (req, res) => {
+    update = async (req, res, next) => {
         try {
             const id = req.params.id
             await this.checkByID(id, res);
             const updateUser = await this.model.findByIdAndUpdate(id, req.body, { new: true })
-            return res.status(200).json({
-                statusCode: 200,
-                message: 'success',
-                data: updateUser
-            })
+            successRes(res,updateUser)
         } catch (error) {
-            return res.status(500).json({
-                statusCode: 500,
-                message: error.message || 'Invalid server error'
-            })
+           next(error)
         }
     }
     // -------------------------------------------------------------------
     // DELETE
-    delete = async (req, res) => {
+    delete = async (req, res, next) => {
         try {
             const id = req.params.id
             await this.checkByID(id, res);
             const updateUser = await this.model.findByIdAndDelete(id, req.params)
-            return res.status(200).json({
-                statusCode: 200,
-                message: 'success',
-                data: {}
-            })
+            successRes(updateUser,{})
         } catch (error) {
-            return res.status(500).json({
-                statusCode: 500,
-                message: error.message || 'Invalid server error'
-            })
+           next(error)
         }
     }
     // -------------------------------------------------------------------
     // CHECK_BY_ID
     checkByID = async (id) => {
-    if (!isValidObjectId(id)) {
-        throw new Error('Invalid ObjectId');
+        if (!isValidObjectId(id)) {
+            throw new AppError('Invalid ObjectId',400);
+        }
+        const data = await this.model?.findById(id);
+        if (!data) {
+            throw new AppError(`${this.model.modelName} not found`,404);
+        }
+        return data;
     }
-    const data = await this.model?.findById(id);
-    if (!data) {
-        throw new Error(`${this.model.modelName} not found`);
-    }
-    return data;
-}
 }
