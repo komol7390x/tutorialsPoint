@@ -11,7 +11,7 @@ const router = Router()
 
 router
     .post('/', AuthGuard, RolesGuard(Role.SUPERADMIN, Role.ADMIN), validate(schema.create), controller.create)
-    .get('/', AuthGuard, RolesGuard(Role.SUPERADMIN, Role.ADMIN), controller.getAll)
+    .get('/', controller.getAll)
     .get('/:id', AuthGuard, controller.getByID)
     .patch('/:id', AuthGuard, RolesGuard(Role.SUPERADMIN, Role.ADMIN), validate(schema.update), controller.update)
     .delete('/:id', AuthGuard, RolesGuard(Role.SUPERADMIN, Role.ADMIN), controller.delete)

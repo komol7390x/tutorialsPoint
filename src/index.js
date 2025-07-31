@@ -7,7 +7,9 @@ import production from './start/production.js'
 
 const app = express();
 
+(async()=>{
 await connectDB()
+})()
 production(app)
 
 app.use(express.json());

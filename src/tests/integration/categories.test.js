@@ -4,6 +4,7 @@ import { User } from '../../models/user.model.js';
 import mongoose from 'mongoose';
 import server from '../../index.js'
 
+const request=supertest
 describe('/api/categores', () => {
     beforeEach(() => {
         server
@@ -12,13 +13,14 @@ describe('/api/categores', () => {
         server.close();
         await Category.remove({});
     });
+
     describe('GET /', () => {
         it('should return all categories', async () => {
-            await Category.collection.insertMany([
+            await Category.create([
                 { name: 'dasturlash' },
                 { name: 'tarmoqlar' },
                 { name: 'dizayn' }
-            ]);
+            ])
 
             const response = await request(server).get('/api/categories');
             expect(response.status).toBe(200);
