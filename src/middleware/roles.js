@@ -1,3 +1,5 @@
+import { AppError } from "../error/AppError.js"
+
 export const RolesGuard = (...roles) => {
     return async (req, res, next) => {
         try {
@@ -5,10 +7,7 @@ export const RolesGuard = (...roles) => {
             if (roles.includes(role)&& role) {
                 return next()
             }
-            return res.status(403).json({
-                statusCodde:403,
-                message:'Forbidden user'
-            })
+            throw new AppError('Forbidden user',403)
         } catch (error) {
             next(error)
         }

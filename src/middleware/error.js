@@ -1,4 +1,3 @@
-import winston from "winston";
 import logger from "../utils/Winston.js";
 
 export const winstonError = (err, _req, res, _next) => {
