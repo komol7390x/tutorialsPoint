@@ -53,9 +53,9 @@ export class BaseController {
     delete = async (req, res, next) => {
         try {
             const id = req.params.id
-            await this.checkByID(id, res);
-            const updateUser = await this.model.findByIdAndDelete(id, req.params)
-            successRes(updateUser,{})
+            await this.checkByID(id);
+            await this.model.findByIdAndDelete(id)
+            successRes(res,{})
         } catch (error) {
            next(error)
         }
