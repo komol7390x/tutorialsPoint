@@ -6,8 +6,7 @@ export const globalErrorHandle = (err, _req, res, _next) => {
     const message = err.message || 'Internal server error';
     const stack = err.stack || 'not file found :(';
     
-    logger.error(`StatusCode:${statusCode} 
-        Messsage: ${message}`)
+    logger.error(`StatusCode:  ${statusCode} , Messsage: ${message}`)
 
     return res.status(statusCode).json({
         statusCode,
