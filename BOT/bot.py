@@ -62,6 +62,7 @@ def main_loop():
 
         # Lot hajmini hisoblash riskga asoslanib
         lot = calculate_lot_by_risk(info, RISK_PERCENT, STOP_LOSS_USD)
+
         # Agar lot minimaldan kichik bo‘lsa, ogohlantirish
         if lot is None or lot < info.volume_min:
             print("⚠️ Lot juda kichik; risk/depositni moslang.")
