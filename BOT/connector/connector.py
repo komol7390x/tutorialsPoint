@@ -13,6 +13,7 @@ def connect(max_retries=5, wait_time=3):
         # MT5 API ni ishga tushirish
         if mt5.initialize():
             # Hisobga login qilish
+            print(LOGIN,PASSWORD,SERVER)
             if mt5.login(LOGIN, password=PASSWORD, server=SERVER):
                 # Hisob ma'lumotlarini olish
                 acc = mt5.account_info()

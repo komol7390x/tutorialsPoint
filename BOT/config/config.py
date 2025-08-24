@@ -1,10 +1,10 @@
 import MetaTrader5 as mt5
 
 # ====== Account sozlamalari ====== #
-LOGIN = 7413213
-PASSWORD = "*z7yBqZy"
-SERVER = "FXPIG-Server"
-
+LOGIN = 7413238
+PASSWORD = "VbHo_yH2"
+# SERVER = "FXPIG-Sever"
+SERVER="AMarkets-Demo"
 # ====== Symbol va indikator sozlamalari ====== #
 SYMBOL = "ETHUSDT"
 TIMEFRAME = mt5.TIMEFRAME_H4
