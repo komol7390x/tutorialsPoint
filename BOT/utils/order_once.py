@@ -9,7 +9,6 @@ def open_order_once(symbol):
     positions = mt5.positions_get(symbol=symbol)
     # print(positions)
     if positions and len(positions) > 0:
-        return True  # Pozitsiya bor, yangi order ochilmadi
-
+        return None  # Pozitsiya bor, yangi order ochilmadi
     # Agar pozitsiya yo‘q bo‘lsa, order ochish
-    return False
+    return True

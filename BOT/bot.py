@@ -50,12 +50,7 @@ def main_loop():
         check=open_order_once(SYMBOL)
         if(check):
             print(f"\n📌 Hozirgi pozitsiya mavjud ({SYMBOL}). Yangi order ochilmadi.")
-        else:
-            if 50 < rsi_value:
-                print(f"Kutilyatgan pozitsiya SELL: {RSI_SELL}")
-            else:
-                print(f"Kutilyatgan pozitsiya BUY: {RSI_BUY}")
-
+    
         # Hozirgi ask narxini olish
         tick = mt5.symbol_info_tick(SYMBOL)
         price = tick.ask
@@ -67,6 +62,7 @@ def main_loop():
         if lot is None or lot < info.volume_min:
             print("⚠️ Lot juda kichik; risk/depositni moslang.")
         else:
+        
             # BUY signaliga tekshirish
             if rsi_value is not None and rsi_value < RSI_BUY:
                 sl = price - STOP_LOSS_USD  # Stop Loss
@@ -78,6 +74,10 @@ def main_loop():
                 sl = price + STOP_LOSS_USD
                 tp = price - STOP_LOSS_USD * TP_MULTIPLIER
                 open_order(SYMBOL, mt5.ORDER_TYPE_SELL, lot, sl, tp)
-                
+            else:
+                if 50 < rsi_value:
+                    print(f"Kutilyatgan pozitsiya SELL: {RSI_SELL}")
+                else:
+                    print(f"Kutilyatgan pozitsiya BUY: {RSI_BUY}")
         # Belgilangan intervalgacha kutish
         time.sleep(CHECK_INTERVAL)

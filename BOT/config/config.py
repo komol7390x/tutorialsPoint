@@ -1,15 +1,15 @@
 import MetaTrader5 as mt5
 
 # ====== Account sozlamalari ====== #
-LOGIN = 7413238
-PASSWORD = "VbHo_yH2"
-# SERVER = "FXPIG-Sever"
-SERVER="AMarkets-Demo"
+LOGIN = 2100424231
+PASSWORD = "KbJa*8Hd"
+SERVER = "FXPIG-Server"
+# SERVER="AMarkets-Demo"
 # ====== Symbol va indikator sozlamalari ====== #
-SYMBOL = "ETHUSDT"
+SYMBOL = "BTCUSDT"
 TIMEFRAME = mt5.TIMEFRAME_H4
 RSI_PERIOD = 14
-RSI_BUY = 30
+RSI_BUY = 58
 RSI_SELL = 70
 
 # ====== Risk menejment ====== #
