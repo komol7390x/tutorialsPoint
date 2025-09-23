@@ -8,7 +8,24 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  name     String
-  username String @unique
+  id    Int    @id @default(autoincrement())
+  name  String
+  games Game[]
+}
+
+model Game {
+  id       Int     @id @default(autoincrement())
+  userId   Int
+  user     User    @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  number   Int
+  guesses  Guess[]
+  finished Boolean @default(false)
+}
+
+model Guess {
+  id     Int    @id @default(autoincrement())
+  gameId Int
+  game   Game   @relation(fields: [gameId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  value  Int
+  result String
 }
